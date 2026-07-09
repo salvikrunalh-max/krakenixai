@@ -10,6 +10,11 @@ export const FAQ_ITEMS = [
       "The Frontend Baseline has no retainer. Scale Pipeline runs $50–$200/mo depending on automation volume. Elite AI Core runs $100–$200+/mo for voice AI, infrastructure, and ongoing maintenance.",
   },
   {
+    question: "How does the $1,800 full-stack price work?",
+    answer:
+      "Start with the $500 Frontend Baseline, then add modules: Voice AI ($600), CRM & n8n ($400), SMS Engine ($350), and Payments ($300). All four modules together total $2,150 — foundational clients get a $350 discount, locking the full stack at $1,800 one-time setup.",
+  },
+  {
     question: "How long does setup take?",
     answer:
       "Frontend baseline ships in 5–7 business days. Full stack systems with voice AI and CRM automation typically take 2–4 weeks depending on integrations.",

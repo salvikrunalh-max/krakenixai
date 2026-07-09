@@ -74,9 +74,9 @@ export function Calculator() {
                         included
                       </span>
                     </div>
-                    <p className="text-sm text-muted-light">
-                      Conversion-optimized, mobile-first page. Always part of the build.
-                    </p>
+                  <p className="text-base text-muted-light">
+                    Conversion-optimized, mobile-first page. Always part of the build.
+                  </p>
                   </div>
                   <span className="text-base font-bold text-cyan-bright shrink-0">{formatPrice(BASE_PRICE)}</span>
                 </div>
@@ -131,7 +131,7 @@ export function Calculator() {
                               +{formatPrice(addon.price)}
                             </span>
                           </div>
-                          <p className="text-sm text-muted-light mt-0.5">{addon.description}</p>
+                          <p className="text-base text-muted-light mt-1">{addon.description}</p>
                         </div>
                       </div>
                     </button>
@@ -142,12 +142,31 @@ export function Calculator() {
 
             <div className="lg:col-span-2">
               <div className="glass-card-gold card-compact lg:sticky lg:top-20">
-                <p className="text-sm text-muted-light uppercase tracking-widest mb-1">
+                <p className="text-base text-muted-light uppercase tracking-widest font-semibold mb-3">
                   Estimated one-time setup
                 </p>
 
+                <ul className="space-y-2 mb-4 border-b border-white/10 pb-4">
+                  <li className="flex justify-between gap-3 text-base">
+                    <span className="text-muted-light">Frontend Baseline</span>
+                    <span className="font-semibold text-foreground tabular-nums">{formatPrice(BASE_PRICE)}</span>
+                  </li>
+                  {ADDON_ORDER.filter((id) => selected.has(id)).map((id) => (
+                    <li key={id} className="flex justify-between gap-3 text-base">
+                      <span className="text-muted-light">{ADDONS[id].label}</span>
+                      <span className="font-semibold text-cyan-bright tabular-nums">+{formatPrice(ADDONS[id].price)}</span>
+                    </li>
+                  ))}
+                  {discount > 0 && (
+                    <li className="flex justify-between gap-3 text-base">
+                      <span className="text-leaf font-medium">Foundational discount</span>
+                      <span className="font-semibold text-leaf tabular-nums">−{formatPrice(discount)}</span>
+                    </li>
+                  )}
+                </ul>
+
                 {discount > 0 && (
-                  <p className="text-muted line-through text-lg mb-0.5">{formatPrice(rawTotal)}</p>
+                  <p className="text-muted line-through text-lg mb-0.5 tabular-nums">{formatPrice(rawTotal)}</p>
                 )}
 
                 <p className="text-4xl sm:text-5xl font-extrabold text-gradient-gold tabular-nums mb-2">
@@ -155,14 +174,14 @@ export function Calculator() {
                 </p>
 
                 {allSelected ? (
-                  <p className="text-sm text-leaf font-medium mb-3">
-                    Foundational discount applied — save {formatPrice(discount)}
+                  <p className="text-base text-leaf font-semibold mb-3">
+                    Full stack locked at {formatPrice(FULL_STACK_PRICE)} — save {formatPrice(discount)}
                   </p>
                 ) : selected.size === 0 ? (
-                  <p className="text-sm text-muted-light mb-3">Frontend baseline only — no retainer.</p>
+                  <p className="body-copy mb-3">Frontend baseline only — no retainer.</p>
                 ) : (
-                  <p className="text-sm text-muted-light mb-3">
-                    Select all modules for foundational discount ({formatPrice(FULL_STACK_RAW)} → {formatPrice(FULL_STACK_PRICE)}).
+                  <p className="body-copy mb-3">
+                    Add all modules for foundational pricing ({formatPrice(FULL_STACK_RAW)} → {formatPrice(FULL_STACK_PRICE)}).
                   </p>
                 )}
 
@@ -181,7 +200,7 @@ export function Calculator() {
                   Lock Configuration via Secure Relay
                 </CtaButton>
 
-                <p className="text-sm text-muted-light mt-3 leading-relaxed">
+                <p className="body-copy mt-4 leading-relaxed">
                   Secured via Krakenix Relay. Encrypted routing handled via Twilio/n8n API.
                 </p>
               </div>

@@ -3,12 +3,12 @@
 :root {
   --background: #020818;
   --foreground: #f0f6ff;
-  --muted: #9db3cc;
-  --muted-light: #c2d4e8;
-  --card: rgba(4, 12, 28, 0.88);
-  --card-hover: rgba(8, 18, 36, 0.95);
-  --card-border: rgba(0, 180, 255, 0.22);
-  --card-border-strong: rgba(0, 180, 255, 0.38);
+  --muted: #b4c5d9;
+  --muted-light: #dce8f4;
+  --card: rgba(6, 14, 32, 0.94);
+  --card-hover: rgba(10, 20, 40, 0.97);
+  --card-border: rgba(0, 200, 255, 0.28);
+  --card-border-strong: rgba(0, 200, 255, 0.45);
   --cyan: #00b4ff;
   --cyan-bright: #33cfff;
   --cyan-dim: #0088cc;
@@ -26,12 +26,12 @@
   --purple-glow: rgba(167, 139, 250, 0.22);
   --amber: #f59e0b;
   --amber-glow: rgba(245, 158, 11, 0.22);
-  --glass-bg: rgba(4, 14, 32, 0.82);
-  --glass-blur: blur(28px) saturate(1.45);
+  --glass-bg: rgba(6, 16, 38, 0.92);
+  --glass-blur: blur(32px) saturate(1.5);
   --glass-radius: 1rem;
-  --glass-border: rgba(0, 200, 255, 0.38);
-  --glass-glow: rgba(0, 180, 255, 0.14);
-  --glass-inset: rgba(255, 255, 255, 0.07);
+  --glass-border: rgba(0, 212, 255, 0.45);
+  --glass-glow: rgba(0, 180, 255, 0.2);
+  --glass-inset: rgba(255, 255, 255, 0.09);
 }
 
 @theme inline {
@@ -63,11 +63,11 @@
 
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 4.5rem;
+    scroll-padding-top: 4rem;
   }
 
   [id] {
-    scroll-margin-top: 4.5rem;
+    scroll-margin-top: 4rem;
   }
 
   body {
@@ -87,7 +87,7 @@
 }
 
 .card-compact {
-  @apply p-5 sm:p-6;
+  @apply p-6 sm:p-7;
 }
 
 /* ── Unified glassmorphism cards ── */
@@ -108,8 +108,8 @@
   border: 1px solid var(--glass-border);
   box-shadow:
     0 0 0 1px var(--glass-inset) inset,
-    0 14px 44px rgba(0, 0, 0, 0.58),
-    0 0 56px var(--glass-glow);
+    0 16px 48px rgba(0, 0, 0, 0.62),
+    0 0 64px var(--glass-glow);
   transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -133,33 +133,33 @@
 }
 
 .glass-card-elevated {
-  background: rgba(6, 16, 36, 0.86);
-  --glass-border: rgba(0, 212, 255, 0.44);
-  --glass-glow: rgba(0, 180, 255, 0.16);
+  background: rgba(8, 18, 42, 0.94);
+  --glass-border: rgba(0, 212, 255, 0.5);
+  --glass-glow: rgba(0, 180, 255, 0.22);
 }
 
 .glass-card-gold {
-  background: rgba(20, 16, 8, 0.84);
-  --glass-border: rgba(245, 200, 66, 0.44);
-  --glass-glow: rgba(245, 200, 66, 0.12);
+  background: rgba(22, 18, 10, 0.92);
+  --glass-border: rgba(245, 200, 66, 0.5);
+  --glass-glow: rgba(245, 200, 66, 0.18);
 }
 
 .glass-card-purple {
-  background: rgba(12, 10, 32, 0.84);
-  --glass-border: rgba(167, 139, 250, 0.42);
-  --glass-glow: rgba(167, 139, 250, 0.12);
+  background: rgba(14, 12, 36, 0.92);
+  --glass-border: rgba(167, 139, 250, 0.48);
+  --glass-glow: rgba(167, 139, 250, 0.18);
 }
 
 .glass-card-emerald {
-  background: rgba(4, 18, 28, 0.84);
-  --glass-border: rgba(74, 222, 128, 0.42);
-  --glass-glow: rgba(74, 222, 128, 0.12);
+  background: rgba(6, 20, 32, 0.92);
+  --glass-border: rgba(74, 222, 128, 0.48);
+  --glass-glow: rgba(74, 222, 128, 0.18);
 }
 
 .glass-card-amber {
-  background: rgba(18, 14, 6, 0.84);
-  --glass-border: rgba(245, 158, 11, 0.42);
-  --glass-glow: rgba(245, 158, 11, 0.12);
+  background: rgba(20, 16, 8, 0.92);
+  --glass-border: rgba(245, 158, 11, 0.48);
+  --glass-glow: rgba(245, 158, 11, 0.18);
 }
 
 /* Section layout wrapper — spacing only, no double glass */
@@ -370,8 +370,8 @@
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 100% 80% at 50% 50%, transparent 35%, rgba(2, 8, 24, 0.55) 100%),
-    linear-gradient(180deg, rgba(2, 8, 24, 0.35) 0%, transparent 22%, transparent 78%, rgba(2, 8, 24, 0.4) 100%);
+    radial-gradient(ellipse 100% 80% at 50% 50%, transparent 30%, rgba(2, 8, 24, 0.72) 100%),
+    linear-gradient(180deg, rgba(2, 8, 24, 0.5) 0%, transparent 20%, transparent 75%, rgba(2, 8, 24, 0.55) 100%);
   z-index: 20;
 }
 
@@ -483,9 +483,9 @@
 
 .eyebrow {
   display: inline-block;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.18em;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
 }
 
@@ -500,15 +500,21 @@
 }
 
 .section-title {
-  font-size: clamp(1.75rem, 4vw, 2.5rem);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  line-height: 1.15;
+  font-size: clamp(1.875rem, 4.5vw, 2.75rem);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.12;
   color: var(--foreground);
 }
 
 .section-description {
-  font-size: 1.125rem;
+  font-size: 1.1875rem;
+  line-height: 1.65;
+  color: var(--muted-light);
+}
+
+.body-copy {
+  font-size: 1.0625rem;
   line-height: 1.7;
   color: var(--muted-light);
 }

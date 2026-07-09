@@ -58,7 +58,7 @@ export function FlowingBackground() {
   return (
     <div className="flowing-bg-canvas" aria-hidden>
       {LAYERS.map((layer, i) => {
-        const opacity = layerOpacity(progress, layer.start, layer.end) * 0.4;
+        const opacity = layerOpacity(progress, layer.start, layer.end) * 0.28;
         if (opacity < 0.01) return null;
 
         return (
