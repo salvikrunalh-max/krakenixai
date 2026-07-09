@@ -5,8 +5,8 @@
   --foreground: #f0f6ff;
   --muted: #b4c5d9;
   --muted-light: #dce8f4;
-  --card: rgba(6, 14, 32, 0.94);
-  --card-hover: rgba(10, 20, 40, 0.97);
+  --card: rgba(6, 14, 32, 0.9);
+  --card-hover: rgba(10, 20, 40, 0.93);
   --card-border: rgba(0, 200, 255, 0.28);
   --card-border-strong: rgba(0, 200, 255, 0.45);
   --cyan: #00b4ff;
@@ -26,7 +26,7 @@
   --purple-glow: rgba(167, 139, 250, 0.22);
   --amber: #f59e0b;
   --amber-glow: rgba(245, 158, 11, 0.22);
-  --glass-bg: rgba(6, 16, 38, 0.92);
+  --glass-bg: rgba(6, 16, 38, 0.88);
   --glass-blur: blur(32px) saturate(1.5);
   --glass-radius: 1rem;
   --glass-border: rgba(0, 212, 255, 0.45);
@@ -133,31 +133,31 @@
 }
 
 .glass-card-elevated {
-  background: rgba(8, 18, 42, 0.94);
+  background: rgba(8, 18, 42, 0.9);
   --glass-border: rgba(0, 212, 255, 0.5);
   --glass-glow: rgba(0, 180, 255, 0.22);
 }
 
 .glass-card-gold {
-  background: rgba(22, 18, 10, 0.92);
+  background: rgba(22, 18, 10, 0.88);
   --glass-border: rgba(245, 200, 66, 0.5);
   --glass-glow: rgba(245, 200, 66, 0.18);
 }
 
 .glass-card-purple {
-  background: rgba(14, 12, 36, 0.92);
+  background: rgba(14, 12, 36, 0.88);
   --glass-border: rgba(167, 139, 250, 0.48);
   --glass-glow: rgba(167, 139, 250, 0.18);
 }
 
 .glass-card-emerald {
-  background: rgba(6, 20, 32, 0.92);
+  background: rgba(6, 20, 32, 0.88);
   --glass-border: rgba(74, 222, 128, 0.48);
   --glass-glow: rgba(74, 222, 128, 0.18);
 }
 
 .glass-card-amber {
-  background: rgba(20, 16, 8, 0.92);
+  background: rgba(20, 16, 8, 0.88);
   --glass-border: rgba(245, 158, 11, 0.48);
   --glass-glow: rgba(245, 158, 11, 0.18);
 }
@@ -622,7 +622,7 @@
   border-radius: 9999px;
   font-size: 0.6875rem;
   color: var(--muted-light);
-  background: rgba(4, 12, 28, 0.92);
+  background: rgba(4, 12, 28, 0.88);
   border: 1px solid rgba(0, 180, 255, 0.15);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
