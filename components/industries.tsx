@@ -15,7 +15,7 @@ export function Industries() {
           description="Every local business that runs on calls and appointments — not just one niche."
         />
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
+        <div className="grid grid-cols-1 min-[480px]:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-4">
           {INDUSTRIES.map((industry, i) => (
             <FadeIn key={industry.id} delay={i * 60}>
               <div

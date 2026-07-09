@@ -10,9 +10,9 @@ export function Hero() {
     <section className="relative min-h-0 md:min-h-[92vh] flex flex-col pt-14 overflow-hidden">
       <div className="hero-bg-shield" aria-hidden />
 
-      <div className="relative z-10 flex-1 flex items-center mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6 sm:py-16 w-full">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 xl:gap-10 items-start w-full">
-          <div className="hero-copy-panel card-compact space-y-3 sm:space-y-5">
+      <div className="relative z-10 flex-1 flex items-center mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-5 sm:py-16 w-full">
+        <div className="grid min-[480px]:grid-cols-2 md:grid-cols-2 gap-3 sm:gap-6 lg:gap-8 xl:gap-10 items-start w-full">
+          <div className="hero-copy-panel card-compact space-y-2.5 sm:space-y-5 min-[480px]:col-span-2 md:col-span-1">
             <div className="inline-flex items-center gap-2 rounded-full border border-cyan/30 bg-cyan/10 px-3 py-1.5 text-sm text-cyan-bright">
               <span className="relative flex h-1.5 w-1.5">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan opacity-75" />
@@ -46,7 +46,7 @@ export function Hero() {
               <OpenChatCta size="lg" className="w-full sm:w-auto" />
             </div>
 
-            <div className="flex flex-wrap gap-1.5 pt-0.5">
+            <div className="flex flex-wrap gap-1.5 pt-0.5 hidden min-[480px]:flex">
               {[
                 "No monthly retainer on baseline",
                 "15-second response guarantee",
@@ -62,7 +62,7 @@ export function Hero() {
             </div>
           </div>
 
-          <div className="w-full space-y-2 sm:space-y-3 sm:col-span-1">
+          <div className="w-full grid grid-cols-1 min-[480px]:grid-cols-2 md:grid-cols-1 gap-2 sm:gap-3">
             <HeroIntelPanel />
             <LiveMetrics />
           </div>

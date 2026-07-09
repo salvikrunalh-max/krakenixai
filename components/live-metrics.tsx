@@ -14,7 +14,7 @@ function MetricCard({
   accent?: boolean;
 }) {
   return (
-    <div className="glass-card card-compact text-center">
+    <div className="rounded-lg bg-white/[0.04] border border-white/10 p-2 sm:p-3 text-center">
       <p className="text-xs sm:text-sm uppercase tracking-widest text-muted-light mb-1">{label}</p>
       <p
         className={`text-xl sm:text-2xl font-bold tabular-nums metric-flash ${
@@ -64,8 +64,8 @@ export function LiveMetrics() {
   }, []);
 
   return (
-    <div className="glass-card-emerald card-compact w-full">
-      <div className="flex items-center justify-between mb-4">
+    <div className="glass-card-emerald card-compact w-full h-full">
+      <div className="flex items-center justify-between mb-3 sm:mb-4">
         <div className="flex items-center gap-2">
           <span className="relative flex h-2 w-2">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald opacity-75" />
@@ -76,7 +76,7 @@ export function LiveMetrics() {
         <span className="text-xs font-mono text-muted-light tabular-nums">{time}</span>
       </div>
 
-      <div className="grid grid-cols-3 gap-2 sm:gap-3 mb-4">
+      <div className="grid grid-cols-3 gap-1.5 sm:gap-3 mb-3 sm:mb-4">
         <MetricCard label="Response" value={String(responseMs)} unit="s" accent />
         <MetricCard label="Uptime" value="99.98" unit="%" />
         <MetricCard label="Leads/24h" value={leads.toLocaleString()} />

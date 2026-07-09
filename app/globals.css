@@ -83,11 +83,11 @@
 }
 
 .section-compact {
-  @apply py-7 sm:py-14;
+  @apply py-6 sm:py-14;
 }
 
 .card-compact {
-  @apply p-4 sm:p-7;
+  @apply p-3.5 sm:p-7;
 }
 
 .section-panel {
@@ -638,26 +638,55 @@
   }
 
   .flowing-bg-mobile-static {
-    background-image: url("/bg-mobile-neural.png");
+    display: block;
+    background-image: url("/bg-mobile-chain.png");
     background-size: cover;
     background-position: center;
+    background-attachment: scroll;
     transform: translateZ(0);
+    will-change: transform;
+  }
+
+  .flowing-bg-desktop {
+    display: none !important;
   }
 
   .flowing-bg-mobile-static .flowing-bg-vignette {
     background:
-      radial-gradient(ellipse 100% 80% at 50% 50%, transparent 25%, rgba(2, 8, 24, 0.78) 100%),
-      linear-gradient(180deg, rgba(2, 8, 24, 0.55) 0%, transparent 18%, transparent 78%, rgba(2, 8, 24, 0.6) 100%);
+      radial-gradient(ellipse 100% 80% at 50% 50%, transparent 22%, rgba(2, 8, 24, 0.8) 100%),
+      linear-gradient(180deg, rgba(2, 8, 24, 0.58) 0%, transparent 16%, transparent 80%, rgba(2, 8, 24, 0.62) 100%);
+  }
+
+  .glass-card,
+  .glass-card-elevated,
+  .glass-card-cyan,
+  .glass-card-gold,
+  .glass-card-purple,
+  .glass-card-emerald,
+  .glass-card-amber,
+  .content-blur,
+  .hero-copy-panel {
+    backdrop-filter: blur(16px) saturate(1.35);
+    -webkit-backdrop-filter: blur(16px) saturate(1.35);
+  }
+
+  .hero-bg-shield {
+    backdrop-filter: blur(24px) saturate(0.5) brightness(0.45);
+    -webkit-backdrop-filter: blur(24px) saturate(0.5) brightness(0.45);
   }
 
   .section-heading-wrap {
-    margin-bottom: 1rem !important;
-    padding: 1rem !important;
+    margin-bottom: 0.75rem !important;
+    padding: 0.875rem !important;
+  }
+
+  .section-heading-wrap .eyebrow {
+    margin-bottom: 0.5rem;
   }
 
   .section-heading-wrap .section-description {
-    margin-top: 0.75rem;
-    font-size: 1.0625rem;
+    margin-top: 0.5rem;
+    font-size: 1rem;
   }
 
   .section-divider {
@@ -672,6 +701,12 @@
   .glass-card-emerald:hover,
   .glass-card-amber:hover {
     transform: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .flowing-bg-mobile-static {
+    display: none !important;
   }
 }
 

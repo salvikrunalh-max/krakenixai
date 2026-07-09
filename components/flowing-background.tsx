@@ -3,8 +3,6 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-const MOBILE_BREAKPOINT = 768;
-
 const LAYERS = [
   { src: "/bg-pcb.png", start: 0, end: 0.14, position: "center top", animDelay: "0s", w: 472, h: 1024 },
   { src: "/bg-datastream.png", start: 0.1, end: 0.24, position: "center top", animDelay: "-4s", w: 682, h: 1024 },
@@ -25,31 +23,18 @@ function layerOpacity(progress: number, start: number, end: number): number {
   return 0;
 }
 
-export function FlowingBackground() {
+function DesktopFlowingLayers() {
   const [progress, setProgress] = useState(0);
   const [reducedMotion, setReducedMotion] = useState(false);
-  const [isMobile, setIsMobile] = useState(true);
 
   useEffect(() => {
-    const mobileMq = window.matchMedia(`(max-width: ${MOBILE_BREAKPOINT - 1}px)`);
+    const desktopMq = window.matchMedia("(min-width: 768px)");
+    if (!desktopMq.matches) return;
+
     const motionMq = window.matchMedia("(prefers-reduced-motion: reduce)");
-
-    const syncMobile = () => setIsMobile(mobileMq.matches);
     const syncMotion = () => setReducedMotion(motionMq.matches);
-
-    syncMobile();
     syncMotion();
-    mobileMq.addEventListener("change", syncMobile);
     motionMq.addEventListener("change", syncMotion);
-
-    return () => {
-      mobileMq.removeEventListener("change", syncMobile);
-      motionMq.removeEventListener("change", syncMotion);
-    };
-  }, []);
-
-  useEffect(() => {
-    if (isMobile) return;
 
     let ticking = false;
     const onScroll = () => {
@@ -67,21 +52,14 @@ export function FlowingBackground() {
     window.addEventListener("resize", onScroll);
 
     return () => {
+      motionMq.removeEventListener("change", syncMotion);
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onScroll);
     };
-  }, [isMobile]);
-
-  if (isMobile) {
-    return (
-      <div className="flowing-bg-canvas flowing-bg-mobile-static" aria-hidden>
-        <div className="flowing-bg-vignette" />
-      </div>
-    );
-  }
+  }, []);
 
   return (
-    <div className="flowing-bg-canvas" aria-hidden>
+    <>
       {LAYERS.map((layer, i) => {
         const opacity = layerOpacity(progress, layer.start, layer.end) * 0.28;
         if (opacity < 0.01) return null;
@@ -116,6 +94,20 @@ export function FlowingBackground() {
         );
       })}
       <div className="flowing-bg-vignette" />
-    </div>
+    </>
+  );
+}
+
+/** Mobile: pure CSS static bg. Desktop: scroll-linked montage (md+ only). */
+export function FlowingBackground() {
+  return (
+    <>
+      <div className="flowing-bg-canvas flowing-bg-mobile-static" aria-hidden>
+        <div className="flowing-bg-vignette" />
+      </div>
+      <div className="flowing-bg-canvas flowing-bg-desktop hidden md:block" aria-hidden>
+        <DesktopFlowingLayers />
+      </div>
+    </>
   );
 }

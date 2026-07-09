@@ -14,7 +14,7 @@ export function SectionHeading({
   const accentClass = accent === "gold" ? "eyebrow-gold" : "eyebrow-cyan";
 
   return (
-    <div className="content-blur card-compact text-center mb-6 sm:mb-8 max-w-4xl mx-auto section-heading-wrap">
+    <div className="content-blur card-compact text-center mb-4 sm:mb-8 max-w-4xl mx-auto section-heading-wrap">
       <p className={`eyebrow ${accentClass} mb-3`}>{eyebrow}</p>
       <h2 className="section-title">{title}</h2>
       {description && (

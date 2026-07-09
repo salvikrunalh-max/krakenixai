@@ -63,7 +63,7 @@ export function Calculator() {
         />
 
         <div className="section-panel">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-6">
+          <div className="grid grid-cols-1 min-[480px]:grid-cols-2 lg:grid-cols-5 gap-3 lg:gap-6">
             <div className="space-y-2 lg:col-span-3">
               <div className="glass-card-cyan card-compact">
                 <div className="flex items-start justify-between gap-3">

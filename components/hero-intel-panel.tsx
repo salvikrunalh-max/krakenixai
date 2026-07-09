@@ -49,23 +49,23 @@ export function HeroIntelPanel() {
   const [featured, ...rest] = headlines;
 
   return (
-    <div className="w-full space-y-3">
+    <div className="w-full space-y-2 sm:space-y-3">
       <div className="glass-card-cyan card-compact">
-        <div className="flex items-center justify-between gap-3 mb-2">
-          <span className="text-sm font-semibold text-foreground">Local time</span>
-          <span className="text-sm text-muted-light">Ardmore, OK</span>
+        <div className="flex items-center justify-between gap-2 mb-1">
+          <span className="text-xs sm:text-sm font-semibold text-foreground">Local time</span>
+          <span className="text-xs sm:text-sm text-muted-light">Ardmore, OK</span>
         </div>
-        <p className="text-3xl sm:text-4xl font-bold tabular-nums text-foreground tracking-tight">
+        <p className="text-2xl sm:text-4xl font-bold tabular-nums text-foreground tracking-tight">
           {clock.time}
         </p>
-        <p className="text-base text-muted-light mt-1">{clock.date}</p>
+        <p className="text-sm sm:text-base text-muted-light mt-0.5">{clock.date}</p>
       </div>
 
       <div className="glass-card card-compact">
-        <div className="flex items-center justify-between gap-2 mb-4 pb-3 border-b border-white/10">
+        <div className="flex items-center justify-between gap-2 mb-3 pb-2 border-b border-white/10">
           <div>
-            <h3 className="text-base font-bold text-foreground">AI News</h3>
-            <p className="text-sm text-muted-light">Top headlines · updated hourly</p>
+            <h3 className="text-sm sm:text-base font-bold text-foreground">AI News</h3>
+            <p className="text-xs sm:text-sm text-muted-light">Top headlines · hourly</p>
           </div>
           <span className="text-xs font-semibold uppercase tracking-wider text-cyan-bright bg-cyan/10 border border-cyan/25 rounded-full px-2.5 py-1">
             Live
@@ -92,8 +92,8 @@ export function HeroIntelPanel() {
           </a>
         )}
 
-        <ul className="space-y-3">
-          {rest.slice(0, 4).map((h, i) => (
+        <ul className="space-y-2 sm:space-y-3">
+          {rest.slice(0, 3).map((h, i) => (
             <li key={`${h.url}-${i}`}>
               <a
                 href={h.url}
