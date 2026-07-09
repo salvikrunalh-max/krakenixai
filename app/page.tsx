@@ -30,16 +30,16 @@ export default function Home() {
         <Industries />
         <LostLeadsCalculator />
         <HowItWorks />
-        <div className="section-divider mx-auto max-w-4xl opacity-50" />
+        <div className="section-divider mx-auto max-w-4xl opacity-50 hidden sm:block" />
         <LiveTestWidget />
-        <div className="section-divider mx-auto max-w-4xl opacity-50" />
+        <div className="section-divider mx-auto max-w-4xl opacity-50 hidden sm:block" />
         <Calculator />
         <SystemsEngines />
         <EnterpriseCta />
         <SocialProof />
         <Team />
         <ScarcityBooking />
-        <div className="section-divider mx-auto max-w-4xl opacity-40" />
+        <div className="section-divider mx-auto max-w-4xl opacity-40 hidden sm:block" />
         <PricingPackages />
         <FAQ />
         <ContactForm />

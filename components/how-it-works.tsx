@@ -46,7 +46,7 @@ export function HowItWorks() {
           description="Three steps. Zero manual chasing."
         />
 
-        <div className="grid md:grid-cols-3 gap-2.5">
+        <div className="grid sm:grid-cols-3 gap-2">
           {STEPS.map((step, i) => (
             <FadeIn key={step.num} delay={i * 60}>
               <div

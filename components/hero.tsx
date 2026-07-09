@@ -7,12 +7,12 @@ import { IndustryTicker } from "./industry-ticker";
 
 export function Hero() {
   return (
-    <section className="relative min-h-[92vh] flex flex-col pt-14 overflow-hidden">
+    <section className="relative min-h-0 md:min-h-[92vh] flex flex-col pt-14 overflow-hidden">
       <div className="hero-bg-shield" aria-hidden />
 
-      <div className="relative z-10 flex-1 flex items-center mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-16 w-full">
-        <div className="grid lg:grid-cols-2 gap-6 lg:gap-8 xl:gap-10 items-start w-full">
-          <div className="hero-copy-panel card-compact space-y-4 sm:space-y-5">
+      <div className="relative z-10 flex-1 flex items-center mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6 sm:py-16 w-full">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 xl:gap-10 items-start w-full">
+          <div className="hero-copy-panel card-compact space-y-3 sm:space-y-5">
             <div className="inline-flex items-center gap-2 rounded-full border border-cyan/30 bg-cyan/10 px-3 py-1.5 text-sm text-cyan-bright">
               <span className="relative flex h-1.5 w-1.5">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan opacity-75" />
@@ -62,7 +62,7 @@ export function Hero() {
             </div>
           </div>
 
-          <div className="w-full space-y-3">
+          <div className="w-full space-y-2 sm:space-y-3 sm:col-span-1">
             <HeroIntelPanel />
             <LiveMetrics />
           </div>

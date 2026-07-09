@@ -50,7 +50,7 @@ export function LostLeadsCalculator() {
         />
 
         <div className="glass-card-gold card-compact">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 mb-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 mb-4 sm:mb-6">
             {LOST_LEADS_PRESETS.map((p) => (
               <button
                 key={p.id}
@@ -72,7 +72,7 @@ export function LostLeadsCalculator() {
             {preset.insight}
           </p>
 
-          <div className="grid lg:grid-cols-2 gap-8">
+          <div className="grid sm:grid-cols-2 gap-4 lg:gap-8">
             <div className="space-y-6">
               <label className="block">
                 <div className="flex justify-between text-sm mb-2">

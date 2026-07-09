@@ -61,7 +61,7 @@ export function PricingPackages() {
         />
 
         <div className="section-panel">
-        <div className="grid md:grid-cols-3 gap-4 items-stretch">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 items-stretch">
           {PACKAGES.map((pkg, i) => (
             <FadeIn key={pkg.name} delay={i * 60}>
               <div

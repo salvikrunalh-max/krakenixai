@@ -83,14 +83,24 @@
 }
 
 .section-compact {
-  @apply py-10 sm:py-14;
+  @apply py-7 sm:py-14;
 }
 
 .card-compact {
-  @apply p-6 sm:p-7;
+  @apply p-4 sm:p-7;
 }
 
-/* ── Unified glassmorphism cards ── */
+.section-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .section-panel {
+    gap: 1rem;
+  }
+}
 .glass-card,
 .glass-card-elevated,
 .glass-card-cyan,
@@ -160,13 +170,6 @@
   background: rgba(20, 16, 8, 0.88);
   --glass-border: rgba(245, 158, 11, 0.48);
   --glass-glow: rgba(245, 158, 11, 0.18);
-}
-
-/* Section layout wrapper — spacing only, no double glass */
-.section-panel {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
 }
 
 /* ── Ambient background layers ── */
@@ -626,6 +629,50 @@
   border: 1px solid rgba(0, 180, 255, 0.15);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
+}
+
+/* Mobile layout & scroll performance */
+@media (max-width: 767px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  .flowing-bg-mobile-static {
+    background-image: url("/bg-mobile-neural.png");
+    background-size: cover;
+    background-position: center;
+    transform: translateZ(0);
+  }
+
+  .flowing-bg-mobile-static .flowing-bg-vignette {
+    background:
+      radial-gradient(ellipse 100% 80% at 50% 50%, transparent 25%, rgba(2, 8, 24, 0.78) 100%),
+      linear-gradient(180deg, rgba(2, 8, 24, 0.55) 0%, transparent 18%, transparent 78%, rgba(2, 8, 24, 0.6) 100%);
+  }
+
+  .section-heading-wrap {
+    margin-bottom: 1rem !important;
+    padding: 1rem !important;
+  }
+
+  .section-heading-wrap .section-description {
+    margin-top: 0.75rem;
+    font-size: 1.0625rem;
+  }
+
+  .section-divider {
+    display: none;
+  }
+
+  .glass-card:hover,
+  .glass-card-elevated:hover,
+  .glass-card-cyan:hover,
+  .glass-card-gold:hover,
+  .glass-card-purple:hover,
+  .glass-card-emerald:hover,
+  .glass-card-amber:hover {
+    transform: none;
+  }
 }
 
 /* Mobile sticky CTA padding */
