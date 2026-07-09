@@ -11,8 +11,8 @@ export function Hero() {
       <div className="hero-bg-shield" aria-hidden />
 
       <div className="relative z-10 flex-1 flex items-center mx-auto max-w-7xl px-3 sm:px-6 lg:px-8 py-4 md:py-16 w-full">
-        <div className="grid grid-cols-2 md:grid-cols-2 gap-2 md:gap-8 items-start w-full">
-          <div className="hero-copy-panel card-compact space-y-2 md:space-y-5 col-span-2 md:col-span-1">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-8 items-start w-full">
+          <div className="hero-copy-panel card-compact space-y-2 md:space-y-5 sm:col-span-2 md:col-span-1">
             <div className="inline-flex items-center gap-2 rounded-full border border-cyan/30 bg-cyan/10 px-3 py-1.5 text-sm text-cyan-bright">
               <span className="relative flex h-1.5 w-1.5">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan opacity-75" />

@@ -50,7 +50,7 @@ export function HeroIntelPanel() {
 
   return (
     <div className="w-full space-y-2">
-      <div className="glass-card-cyan card-compact !p-2.5 md:!p-6">
+      <div className="glass-card-cyan card-compact">
         <div className="flex items-center justify-between gap-1 mb-0.5">
           <span className="text-[0.6875rem] md:text-sm font-semibold text-foreground">Local time</span>
           <span className="text-[0.6875rem] md:text-sm text-muted-light">Ardmore</span>

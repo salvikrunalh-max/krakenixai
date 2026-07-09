@@ -13,18 +13,15 @@ export function FadeIn({
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
-  const [instant, setInstant] = useState(false);
 
   useEffect(() => {
-    const mobile = window.matchMedia("(max-width: 767px)").matches;
-    if (mobile) {
-      setInstant(true);
+    const el = ref.current;
+    if (!el) return;
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       setVisible(true);
       return;
     }
-
-    const el = ref.current;
-    if (!el) return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -33,16 +30,12 @@ export function FadeIn({
           observer.disconnect();
         }
       },
-      { threshold: 0.12 }
+      { threshold: 0.08, rootMargin: "0px 0px -4% 0px" }
     );
 
     observer.observe(el);
     return () => observer.disconnect();
   }, []);
-
-  if (instant) {
-    return <div className={className}>{children}</div>;
-  }
 
   return (
     <div

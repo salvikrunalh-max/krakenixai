@@ -78,7 +78,7 @@ export function SystemsEngines() {
         />
 
         <div className="section-panel">
-        <div className="grid grid-cols-2 gap-2 md:gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-3">
           {ENGINES.map((engine, i) => (
             <FadeIn key={engine.title} delay={i * 50}>
               <div className="glass-card-cyan card-compact flex gap-3 items-start group transition-colors h-full">

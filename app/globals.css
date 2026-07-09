@@ -83,11 +83,11 @@
 }
 
 .section-compact {
-  @apply py-5 md:py-14;
+  @apply py-6 md:py-14;
 }
 
 .card-compact {
-  @apply p-3 md:p-7;
+  @apply p-4 md:p-7;
 }
 
 .section-panel {
@@ -668,10 +668,6 @@
     display: none !important;
   }
 
-  .animate-ping {
-    display: none !important;
-  }
-
   .glass-card,
   .glass-card-elevated,
   .glass-card-cyan,
@@ -735,10 +731,6 @@
 
   .section-divider {
     display: none;
-  }
-
-  .mobile-span-full {
-    grid-column: 1 / -1;
   }
 
   .glass-card:hover,
@@ -827,4 +819,11 @@
 .fade-in-visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+@media (max-width: 639px) {
+  .fade-in {
+    transform: translateY(10px);
+    transition: opacity 0.45s ease, transform 0.45s ease;
+  }
 }

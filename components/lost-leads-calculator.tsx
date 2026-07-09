@@ -50,7 +50,7 @@ export function LostLeadsCalculator() {
         />
 
         <div className="glass-card-gold card-compact">
-          <div className="grid grid-cols-2 lg:grid-cols-3 gap-2 mb-3 md:mb-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-4 md:mb-6">
             {LOST_LEADS_PRESETS.map((p) => (
               <button
                 key={p.id}
@@ -72,8 +72,8 @@ export function LostLeadsCalculator() {
             {preset.insight}
           </p>
 
-          <div className="grid grid-cols-2 gap-2 md:gap-8">
-            <div className="space-y-4 md:space-y-6 col-span-2 md:col-span-1">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-8">
+            <div className="space-y-4 md:space-y-6">
               <label className="block">
                 <div className="flex justify-between text-sm mb-2">
                   <span className="text-foreground font-medium">Inbound leads per week</span>
@@ -130,7 +130,7 @@ export function LostLeadsCalculator() {
               </label>
             </div>
 
-            <div className="glass-card-cyan card-compact flex flex-col justify-center text-center md:text-left col-span-2 md:col-span-1">
+            <div className="glass-card-cyan card-compact flex flex-col justify-center text-center md:text-left">
               <p className="text-sm uppercase tracking-widest text-muted-light mb-2">
                 Estimated revenue lost / month
               </p>

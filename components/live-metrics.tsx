@@ -64,11 +64,11 @@ export function LiveMetrics() {
   }, []);
 
   return (
-    <div className="glass-card-emerald card-compact !p-2.5 md:!p-6 w-full h-full">
+    <div className="glass-card-emerald card-compact w-full h-full">
       <div className="flex items-center justify-between mb-2 md:mb-4">
         <div className="flex items-center gap-1.5">
           <span className="relative flex h-1.5 w-1.5 md:h-2 md:w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald opacity-75 hidden md:inline-flex" />
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald opacity-75" />
             <span className="relative inline-flex rounded-full h-full w-full bg-emerald" />
           </span>
           <span className="text-[0.625rem] md:text-xs font-mono text-emerald">live-core</span>
