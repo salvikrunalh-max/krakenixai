@@ -63,8 +63,8 @@ export function Calculator() {
         />
 
         <div className="section-panel">
-          <div className="grid grid-cols-1 min-[480px]:grid-cols-2 lg:grid-cols-5 gap-3 lg:gap-6">
-            <div className="space-y-2 lg:col-span-3">
+          <div className="grid grid-cols-2 lg:grid-cols-5 gap-2 lg:gap-6">
+            <div className="space-y-2 lg:col-span-3 col-span-2">
               <div className="glass-card-cyan card-compact">
                 <div className="flex items-start justify-between gap-3">
                   <div>
@@ -95,7 +95,7 @@ export function Calculator() {
                 )}
               </div>
 
-              <div className="grid sm:grid-cols-2 gap-2">
+              <div className="grid grid-cols-2 gap-2">
                 {ADDON_ORDER.map((id) => {
                   const addon = ADDONS[id];
                   const isOn = selected.has(id);
@@ -140,7 +140,7 @@ export function Calculator() {
               </div>
             </div>
 
-            <div className="lg:col-span-2">
+            <div className="lg:col-span-2 col-span-2">
               <div className="glass-card-gold card-compact lg:sticky lg:top-20">
                 <p className="text-base text-muted-light uppercase tracking-widest font-semibold mb-3">
                   Estimated one-time setup

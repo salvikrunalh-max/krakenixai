@@ -50,7 +50,7 @@ export function SocialProof() {
           title="Results that speak for themselves"
         />
 
-        <div className="grid grid-cols-1 min-[480px]:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-3 mb-6 sm:mb-8">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-2 md:gap-3 mb-4 md:mb-8">
           {TESTIMONIALS.map((t, i) => (
             <FadeIn key={t.role} delay={i * 40}>
               <div className="glass-card-emerald card-compact h-full transition-colors">

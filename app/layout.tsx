@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Geist_Mono } from "next/font/google";
-import { AmbientBackground } from "@/components/ambient-background";
 import { BRAND_NAME, BRAND_SITE_URL } from "@/lib/brand";
 import "./globals.css";
 
@@ -70,7 +69,7 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
         />
-        <AmbientBackground />
+        <div className="mobile-bg-layer" aria-hidden />
         {children}
       </body>
     </html>

@@ -14,10 +14,10 @@ function MetricCard({
   accent?: boolean;
 }) {
   return (
-    <div className="rounded-lg bg-white/[0.04] border border-white/10 p-2 sm:p-3 text-center">
-      <p className="text-xs sm:text-sm uppercase tracking-widest text-muted-light mb-1">{label}</p>
+    <div className="rounded-lg bg-white/[0.04] border border-white/10 p-1.5 md:p-3 text-center">
+      <p className="text-[0.625rem] md:text-sm uppercase tracking-widest text-muted-light mb-0.5 md:mb-1">{label}</p>
       <p
-        className={`text-xl sm:text-2xl font-bold tabular-nums metric-flash ${
+        className={`text-base md:text-2xl font-bold tabular-nums metric-flash ${
           accent ? "text-cyan-bright" : "text-foreground"
         }`}
         key={value}
@@ -64,25 +64,25 @@ export function LiveMetrics() {
   }, []);
 
   return (
-    <div className="glass-card-emerald card-compact w-full h-full">
-      <div className="flex items-center justify-between mb-3 sm:mb-4">
-        <div className="flex items-center gap-2">
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald opacity-75" />
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald" />
+    <div className="glass-card-emerald card-compact !p-2.5 md:!p-6 w-full h-full">
+      <div className="flex items-center justify-between mb-2 md:mb-4">
+        <div className="flex items-center gap-1.5">
+          <span className="relative flex h-1.5 w-1.5 md:h-2 md:w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald opacity-75 hidden md:inline-flex" />
+            <span className="relative inline-flex rounded-full h-full w-full bg-emerald" />
           </span>
-          <span className="text-xs font-mono text-emerald">krakenix://live-core</span>
+          <span className="text-[0.625rem] md:text-xs font-mono text-emerald">live-core</span>
         </div>
-        <span className="text-xs font-mono text-muted-light tabular-nums">{time}</span>
+        <span className="text-[0.625rem] md:text-xs font-mono text-muted-light tabular-nums">{time}</span>
       </div>
 
-      <div className="grid grid-cols-3 gap-1.5 sm:gap-3 mb-3 sm:mb-4">
+      <div className="grid grid-cols-3 gap-1 md:gap-3 mb-0 md:mb-4">
         <MetricCard label="Response" value={String(responseMs)} unit="s" accent />
         <MetricCard label="Uptime" value="99.98" unit="%" />
         <MetricCard label="Leads/24h" value={leads.toLocaleString()} />
       </div>
 
-      <div className="border-t border-cyan/15 pt-3">
+      <div className="border-t border-cyan/15 pt-3 hidden md:block">
         <p className="text-xs font-mono text-muted-light mb-2">infra.monitor / region us-central</p>
         <div className="grid grid-cols-4 gap-2 text-center">
           {[

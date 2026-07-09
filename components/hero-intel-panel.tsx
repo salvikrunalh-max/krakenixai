@@ -49,19 +49,19 @@ export function HeroIntelPanel() {
   const [featured, ...rest] = headlines;
 
   return (
-    <div className="w-full space-y-2 sm:space-y-3">
-      <div className="glass-card-cyan card-compact">
-        <div className="flex items-center justify-between gap-2 mb-1">
-          <span className="text-xs sm:text-sm font-semibold text-foreground">Local time</span>
-          <span className="text-xs sm:text-sm text-muted-light">Ardmore, OK</span>
+    <div className="w-full space-y-2">
+      <div className="glass-card-cyan card-compact !p-2.5 md:!p-6">
+        <div className="flex items-center justify-between gap-1 mb-0.5">
+          <span className="text-[0.6875rem] md:text-sm font-semibold text-foreground">Local time</span>
+          <span className="text-[0.6875rem] md:text-sm text-muted-light">Ardmore</span>
         </div>
-        <p className="text-2xl sm:text-4xl font-bold tabular-nums text-foreground tracking-tight">
+        <p className="text-lg md:text-4xl font-bold tabular-nums text-foreground tracking-tight">
           {clock.time}
         </p>
-        <p className="text-sm sm:text-base text-muted-light mt-0.5">{clock.date}</p>
+        <p className="text-[0.6875rem] md:text-base text-muted-light mt-0.5 hidden md:block">{clock.date}</p>
       </div>
 
-      <div className="glass-card card-compact">
+      <div className="glass-card card-compact !p-2.5 md:!p-6 hidden md:block">
         <div className="flex items-center justify-between gap-2 mb-3 pb-2 border-b border-white/10">
           <div>
             <h3 className="text-sm sm:text-base font-bold text-foreground">AI News</h3>

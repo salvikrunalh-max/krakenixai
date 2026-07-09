@@ -61,11 +61,13 @@ export function PricingPackages() {
         />
 
         <div className="section-panel">
-        <div className="grid grid-cols-1 min-[480px]:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-2 sm:gap-3 items-stretch">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-3 items-stretch">
           {PACKAGES.map((pkg, i) => (
             <FadeIn key={pkg.name} delay={i * 60}>
               <div
                 className={`relative card-compact flex flex-col h-full ${
+                  i === 2 ? "mobile-span-full md:col-span-1" : ""
+                } ${
                   pkg.popular
                     ? "glass-card-gold ring-1 ring-gold/30"
                     : "glass-card-cyan"

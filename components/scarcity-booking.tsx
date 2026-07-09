@@ -29,7 +29,7 @@ export function ScarcityBooking() {
       <div className="glow-orb bottom-0 left-1/4 h-64 w-96 bg-gold/10" />
 
       <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="grid grid-cols-1 min-[480px]:grid-cols-2 lg:grid-cols-2 gap-3 sm:gap-6 lg:gap-8 items-start">
+        <div className="grid grid-cols-2 lg:grid-cols-2 gap-2 md:gap-8 items-start">
           <FadeIn>
             <div className="text-center lg:text-left glass-card card-compact">
               <div className="inline-flex items-center gap-2 rounded-full border border-gold/35 bg-gold/10 px-3.5 py-1 text-sm font-semibold text-gold mb-4">

@@ -13,8 +13,16 @@ export function FadeIn({
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
+  const [instant, setInstant] = useState(false);
 
   useEffect(() => {
+    const mobile = window.matchMedia("(max-width: 767px)").matches;
+    if (mobile) {
+      setInstant(true);
+      setVisible(true);
+      return;
+    }
+
     const el = ref.current;
     if (!el) return;
 
@@ -31,6 +39,10 @@ export function FadeIn({
     observer.observe(el);
     return () => observer.disconnect();
   }, []);
+
+  if (instant) {
+    return <div className={className}>{children}</div>;
+  }
 
   return (
     <div

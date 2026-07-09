@@ -46,11 +46,11 @@ export function HowItWorks() {
           description="Three steps. Zero manual chasing."
         />
 
-        <div className="grid grid-cols-1 min-[480px]:grid-cols-3 sm:grid-cols-3 gap-2">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
           {STEPS.map((step, i) => (
             <FadeIn key={step.num} delay={i * 60}>
               <div
-                className={`${STEP_CARDS[i % STEP_CARDS.length]} card-compact flex gap-3 items-center h-full`}
+                className={`${STEP_CARDS[i % STEP_CARDS.length]} card-compact flex gap-2 md:gap-3 items-center h-full ${i === 2 ? "mobile-span-full md:col-span-1" : ""}`}
               >
                 <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-cyan/12 text-cyan-bright border border-cyan/20">
                   {step.icon}

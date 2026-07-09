@@ -10,9 +10,9 @@ export function Hero() {
     <section className="relative min-h-0 md:min-h-[92vh] flex flex-col pt-14 overflow-hidden">
       <div className="hero-bg-shield" aria-hidden />
 
-      <div className="relative z-10 flex-1 flex items-center mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-5 sm:py-16 w-full">
-        <div className="grid min-[480px]:grid-cols-2 md:grid-cols-2 gap-3 sm:gap-6 lg:gap-8 xl:gap-10 items-start w-full">
-          <div className="hero-copy-panel card-compact space-y-2.5 sm:space-y-5 min-[480px]:col-span-2 md:col-span-1">
+      <div className="relative z-10 flex-1 flex items-center mx-auto max-w-7xl px-3 sm:px-6 lg:px-8 py-4 md:py-16 w-full">
+        <div className="grid grid-cols-2 md:grid-cols-2 gap-2 md:gap-8 items-start w-full">
+          <div className="hero-copy-panel card-compact space-y-2 md:space-y-5 col-span-2 md:col-span-1">
             <div className="inline-flex items-center gap-2 rounded-full border border-cyan/30 bg-cyan/10 px-3 py-1.5 text-sm text-cyan-bright">
               <span className="relative flex h-1.5 w-1.5">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan opacity-75" />
@@ -21,12 +21,12 @@ export function Hero() {
               Autonomous systems · live &amp; always on
             </div>
 
-            <h1 className="text-3xl sm:text-5xl lg:text-[3.1rem] font-extrabold leading-[1.06] tracking-tight text-foreground">
+            <h1 className="text-2xl md:text-5xl lg:text-[3.1rem] font-extrabold leading-[1.08] tracking-tight text-foreground">
               Stop Losing Leads to{" "}
               <span className="text-gradient">5-Minute Delays.</span>
             </h1>
 
-            <p className="text-base sm:text-lg text-muted-light leading-relaxed max-w-xl">
+            <p className="text-sm md:text-lg text-muted-light leading-relaxed max-w-xl line-clamp-4 md:line-clamp-none">
               We engineer autonomous systems for{" "}
               <span className="text-foreground/90">local businesses</span> across beauty,
               food service, construction, medical, automotive, and more. Krakenix responds,
@@ -34,19 +34,19 @@ export function Hero() {
               <span className="text-cyan-bright font-medium">15 seconds</span>.
             </p>
 
-            <p className="text-sm sm:text-base text-muted-light">
+            <p className="text-xs md:text-base text-muted-light hidden md:block">
               Ardmore, OK · Southern Oklahoma &amp; North Texas
             </p>
 
-            <div className="flex flex-col sm:flex-row flex-wrap gap-2.5">
-              <TestItLiveButton size="lg" className="w-full sm:w-auto" />
-              <CtaButton href="#calculator" size="lg" className="w-full sm:w-auto">
+            <div className="flex flex-col gap-2 md:flex-row md:flex-wrap">
+              <TestItLiveButton size="lg" className="w-full md:w-auto text-sm md:text-base" />
+              <CtaButton href="#calculator" size="lg" className="w-full md:w-auto text-sm md:text-base">
                 Build Your Estimate
               </CtaButton>
-              <OpenChatCta size="lg" className="w-full sm:w-auto" />
+              <OpenChatCta size="lg" className="w-full md:w-auto hidden md:inline-flex" />
             </div>
 
-            <div className="flex flex-wrap gap-1.5 pt-0.5 hidden min-[480px]:flex">
+            <div className="hidden md:flex flex-wrap gap-1.5 pt-0.5">
               {[
                 "No monthly retainer on baseline",
                 "15-second response guarantee",
@@ -62,14 +62,18 @@ export function Hero() {
             </div>
           </div>
 
-          <div className="w-full grid grid-cols-1 min-[480px]:grid-cols-2 md:grid-cols-1 gap-2 sm:gap-3">
+          <div className="col-span-1 min-w-0">
             <HeroIntelPanel />
+          </div>
+          <div className="col-span-1 min-w-0">
             <LiveMetrics />
           </div>
         </div>
       </div>
 
-      <IndustryTicker />
+      <div className="hidden md:block">
+        <IndustryTicker />
+      </div>
     </section>
   );
 }

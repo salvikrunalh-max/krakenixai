@@ -50,13 +50,13 @@ export function LostLeadsCalculator() {
         />
 
         <div className="glass-card-gold card-compact">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 mb-4 sm:mb-6">
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-2 mb-3 md:mb-6">
             {LOST_LEADS_PRESETS.map((p) => (
               <button
                 key={p.id}
                 type="button"
                 onClick={() => selectPreset(p.id)}
-                className={`flex items-center gap-2 rounded-xl px-3 py-2.5 text-left text-sm font-medium border transition-colors cursor-pointer ${
+                className={`flex items-center gap-1.5 rounded-lg px-2 py-2 md:px-3 md:py-2.5 text-left text-xs md:text-sm font-medium border transition-colors cursor-pointer ${
                   presetId === p.id
                     ? "bg-gold/20 border-gold/50 text-gold"
                     : "border-white/15 text-muted-light hover:border-cyan/30 hover:text-foreground"
@@ -68,12 +68,12 @@ export function LostLeadsCalculator() {
             ))}
           </div>
 
-          <p className="text-sm text-muted-light mb-6 leading-relaxed border-l-2 border-gold/40 pl-4">
+          <p className="text-xs md:text-sm text-muted-light mb-3 md:mb-6 leading-relaxed border-l-2 border-gold/40 pl-3 md:pl-4 line-clamp-3 md:line-clamp-none">
             {preset.insight}
           </p>
 
-          <div className="grid grid-cols-1 min-[480px]:grid-cols-2 gap-3 sm:gap-4 lg:gap-8">
-            <div className="space-y-6">
+          <div className="grid grid-cols-2 gap-2 md:gap-8">
+            <div className="space-y-4 md:space-y-6 col-span-2 md:col-span-1">
               <label className="block">
                 <div className="flex justify-between text-sm mb-2">
                   <span className="text-foreground font-medium">Inbound leads per week</span>
@@ -130,7 +130,7 @@ export function LostLeadsCalculator() {
               </label>
             </div>
 
-            <div className="glass-card-cyan card-compact flex flex-col justify-center text-center lg:text-left">
+            <div className="glass-card-cyan card-compact flex flex-col justify-center text-center md:text-left col-span-2 md:col-span-1">
               <p className="text-sm uppercase tracking-widest text-muted-light mb-2">
                 Estimated revenue lost / month
               </p>
