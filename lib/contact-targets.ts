@@ -1,11 +1,6 @@
 import { FOUNDER_EMAIL, FOUNDER_NAME } from "@/lib/brand";
 
-export type ContactTargetId =
-  | "founder"
-  | "natasha"
-  | "alex"
-  | "elena"
-  | "marcus";
+export type ContactTargetId = "founder" | "natasha";
 
 export type ContactTarget = {
   id: ContactTargetId;
@@ -32,27 +27,6 @@ export const SPECIALIST_TARGETS: ContactTarget[] = [
     role: "Manager & Sales Lead",
     email: FOUNDER_EMAIL,
     interest: "Sales & pricing",
-  },
-  {
-    id: "alex",
-    label: "Alex Rivera",
-    role: "Systems Engineer",
-    email: FOUNDER_EMAIL,
-    interest: "Voice AI & infrastructure",
-  },
-  {
-    id: "elena",
-    label: "Elena Morales",
-    role: "Client Success Lead",
-    email: FOUNDER_EMAIL,
-    interest: "Onboarding & CRM",
-  },
-  {
-    id: "marcus",
-    label: "Marcus Chen",
-    role: "Automation Specialist",
-    email: FOUNDER_EMAIL,
-    interest: "Automation & workflows",
   },
   {
     id: "founder",

@@ -14,9 +14,9 @@ export function Team() {
     <section id="team" className="section-compact relative border-y border-cyan/10">
       <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
         <SectionHeading
-          eyebrow="Your team"
-          title="Meet the people behind Krakenix"
-          description="Real engineers. Use the contact form — no ticket queues."
+          eyebrow={FOUNDER_BANNER}
+          title="Meet the operators behind KrakenIX"
+          description="Real people. Direct access — no ticket queues."
         />
 
         <div className="glass-card-gold card-compact mb-4 md:mb-6 text-center ring-1 ring-gold/30">
@@ -37,27 +37,21 @@ export function Team() {
           </a>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-3 md:gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4 max-w-3xl mx-auto">
           {TEAM.map((member) => (
             <div
               key={member.id}
               className={`card-compact flex gap-3 items-start ${
                 member.featured
                   ? "glass-card-gold ring-1 ring-gold/35"
-                  : member.id === "natasha"
-                    ? "glass-card-purple"
-                    : member.name === "Alex Rivera"
-                      ? "glass-card-cyan"
-                      : member.name === "Elena Morales"
-                        ? "glass-card-emerald"
-                        : "glass-card-amber"
+                  : "glass-card-purple"
               }`}
             >
               <div
                 className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full border text-sm font-bold ${
                   member.featured
                     ? "bg-gold/15 border-gold/40 text-gold"
-                    : "bg-gradient-to-br from-cyan/25 to-blue/15 border-cyan/30 text-cyan-bright"
+                    : "bg-gradient-to-br from-purple-400/25 to-blue/15 border-purple-400/30 text-purple-300"
                 }`}
               >
                 {member.name
@@ -94,7 +88,7 @@ export function Team() {
         </div>
 
         <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 mt-6 text-sm text-muted-light">
-          {["Encrypted relay", "No lock-in", "Local case studies", "Direct engineer access"].map(
+          {["Encrypted relay", "No lock-in", "Local case studies", "Direct operator access"].map(
             (item) => (
               <span key={item} className="flex items-center gap-1.5">
                 <svg className="w-3 h-3 text-cyan shrink-0" fill="currentColor" viewBox="0 0 20 20">

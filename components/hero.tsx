@@ -1,11 +1,10 @@
 import { CtaButton } from "./cta-button";
 import { TestItLiveButton } from "./test-it-live-button";
 import { OpenChatCta } from "./open-chat-cta";
-import { LiveMetrics } from "./live-metrics";
-import { HeroIntelPanel } from "./hero-intel-panel";
+import { OperatorImpactMeter } from "./operator-impact-meter";
 import { IndustryTicker } from "./industry-ticker";
 import { BookCallLink } from "./book-call-link";
-import { FOUNDER_SMS_HREF } from "@/lib/brand";
+import { FOUNDER_BANNER, FOUNDER_SMS_HREF } from "@/lib/brand";
 
 export function Hero() {
   return (
@@ -15,12 +14,12 @@ export function Hero() {
       <div className="relative z-10 flex-1 flex items-center mx-auto max-w-7xl px-3 sm:px-6 lg:px-8 py-4 md:py-16 w-full">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-8 items-start w-full">
           <div className="hero-copy-panel card-compact space-y-2 md:space-y-5 sm:col-span-2 md:col-span-1">
-            <div className="inline-flex items-center gap-2 rounded-full border border-cyan/30 bg-cyan/10 px-3 py-1.5 text-sm text-cyan-bright">
+            <div className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-3 py-1.5 text-sm text-gold font-semibold">
               <span className="relative flex h-1.5 w-1.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan opacity-75" />
-                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-cyan-bright" />
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-gold opacity-75" />
+                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-gold" />
               </span>
-              Autonomous systems · live &amp; always on
+              {FOUNDER_BANNER}
             </div>
 
             <h1 className="text-2xl md:text-5xl lg:text-[3.1rem] font-extrabold leading-[1.08] tracking-tight text-foreground">
@@ -31,7 +30,7 @@ export function Hero() {
             <p className="text-sm md:text-lg text-muted-light leading-relaxed max-w-xl line-clamp-4 md:line-clamp-none">
               We engineer autonomous systems for{" "}
               <span className="text-foreground/90">local businesses</span> across beauty,
-              food service, construction, medical, automotive, and more. Krakenix responds,
+              food service, construction, medical, automotive, and more. KrakenIX responds,
               books, and closes clients in under{" "}
               <span className="text-cyan-bright font-medium">15 seconds</span>.
             </p>
@@ -73,9 +72,8 @@ export function Hero() {
             </div>
           </div>
 
-          <div className="col-span-1 min-w-0 space-y-2 md:space-y-3">
-            <HeroIntelPanel />
-            <LiveMetrics />
+          <div className="col-span-1 min-w-0">
+            <OperatorImpactMeter />
           </div>
         </div>
       </div>

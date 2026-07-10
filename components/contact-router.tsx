@@ -26,10 +26,10 @@ export function ContactRouter({ selected, onSelect }: ContactRouterProps) {
         >
           <div>
             <p className="text-xs uppercase tracking-widest text-purple-300 font-semibold mb-1">
-              Route to a specialist
+              Route to the team
             </p>
             <p className="text-sm text-muted-light">
-              Optional — pick a team member. Submissions route through {FOUNDER_TARGET.label}&apos;s relay.
+              Optional — pick Krunal or Natasha. Submissions route through {FOUNDER_TARGET.label}&apos;s relay.
             </p>
           </div>
           <svg
