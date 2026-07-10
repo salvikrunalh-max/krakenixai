@@ -3,6 +3,7 @@ import { MobileNav } from "./mobile-nav";
 import { NavLinks } from "./nav-dropdown";
 import { TestItLiveButton } from "./test-it-live-button";
 import { BrandMark, BrandName } from "./brand-logo";
+import { BOOKING_HREF } from "@/lib/brand";
 
 export function Header() {
   return (
@@ -21,6 +22,12 @@ export function Header() {
 
         <div className="flex shrink-0 items-center gap-2">
           <TestItLiveButton size="sm" className="hidden sm:inline-flex" />
+          <a
+            href={BOOKING_HREF}
+            className="hidden md:inline-flex btn-gold rounded-full px-4 py-2 text-sm"
+          >
+            Book Call
+          </a>
           <MobileNav />
         </div>
       </div>

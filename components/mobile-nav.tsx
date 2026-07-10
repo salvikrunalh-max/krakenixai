@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { NAV_LINKS } from "./nav-dropdown";
 import { TestItLiveButton } from "./test-it-live-button";
+import { BOOKING_HREF } from "@/lib/brand";
 
 export function MobileNav() {
   const [open, setOpen] = useState(false);
@@ -49,6 +50,13 @@ export function MobileNav() {
               Enterprise
             </Link>
             <TestItLiveButton size="sm" className="w-full justify-center mt-2" />
+            <Link
+              href={BOOKING_HREF}
+              onClick={() => setOpen(false)}
+              className="btn-gold rounded-full px-4 py-3 min-h-[44px] text-sm text-center mt-2"
+            >
+              Book Call
+            </Link>
           </nav>
         </div>
       )}
