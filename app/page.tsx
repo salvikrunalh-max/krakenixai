@@ -2,6 +2,7 @@ import { Header } from "@/components/header";
 import { Hero } from "@/components/hero";
 import { Industries } from "@/components/industries";
 import { HowItWorks } from "@/components/how-it-works";
+import { EarlyOperatorWins } from "@/components/early-operator-wins";
 import { LiveTestWidget } from "@/components/live-test-widget";
 import { Calculator } from "@/components/calculator";
 import { SystemsEngines } from "@/components/systems-engines";
@@ -30,6 +31,7 @@ export default function Home() {
         <Industries />
         <LostLeadsCalculator />
         <HowItWorks />
+        <EarlyOperatorWins />
         <div className="section-divider mx-auto max-w-4xl opacity-50 hidden sm:block" />
         <LiveTestWidget />
         <div className="section-divider mx-auto max-w-4xl opacity-50 hidden sm:block" />

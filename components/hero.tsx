@@ -73,10 +73,8 @@ export function Hero() {
             </div>
           </div>
 
-          <div className="col-span-1 min-w-0">
+          <div className="col-span-1 min-w-0 space-y-2 md:space-y-3">
             <HeroIntelPanel />
-          </div>
-          <div className="col-span-1 min-w-0">
             <LiveMetrics />
           </div>
         </div>

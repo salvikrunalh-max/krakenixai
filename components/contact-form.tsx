@@ -156,15 +156,14 @@ export function ContactForm() {
   }
 
   if (state === "success" && responseMeta) {
-    const seconds = Math.max(1, Math.round((responseMeta.elapsedMs ?? 1200) / 1000));
     const headline =
       intent === "lock"
-        ? "Configuration locked"
+        ? "Configuration locked."
         : intent === "foundational"
-          ? "Foundational slot requested"
+          ? "Foundational slot claimed."
           : intent === "booking"
-            ? "Call request received"
-            : "Message sent successfully";
+            ? "Strategy call requested."
+            : "Message received.";
 
     return (
       <section id="contact" className="section-compact relative">
@@ -173,19 +172,20 @@ export function ContactForm() {
             <div className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-leaf/15 border border-leaf/30 text-2xl text-leaf mb-4">
               ✓
             </div>
-            <h2 className="text-2xl font-bold mb-2">{headline}</h2>
-            <p className="text-muted-light mb-2">
-              Thanks — we received your message and will follow up shortly.
+            <h2 className="text-2xl sm:text-3xl font-bold mb-3 text-foreground">{headline}</h2>
+            <p className="text-base sm:text-lg text-muted-light mb-2 leading-relaxed">
+              Architect will respond in{" "}
+              <span className="text-emerald font-semibold">&lt;15s</span>.
             </p>
-            <p className="text-sm text-foreground mb-2">
-              Sent to{" "}
+            <p className="text-sm text-muted-light mb-4">
+              Your inquiry is queued to{" "}
               <a
                 href={`mailto:${FOUNDER_EMAIL}`}
                 className="text-cyan-bright font-medium hover:text-cyan transition-colors"
               >
                 {responseMeta.routedTo || FOUNDER_EMAIL}
-              </a>{" "}
-              in under {seconds} second{seconds === 1 ? "" : "s"}.
+              </a>
+              . Sit tight — we move at operator speed.
             </p>
             {packageNote && (
               <p className="text-sm text-cyan-bright mb-4">{packageNote}</p>

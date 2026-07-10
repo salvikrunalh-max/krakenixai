@@ -1,5 +1,12 @@
 import Link from "next/link";
 import { TEAM } from "@/lib/team";
+import {
+  FOUNDER_BANNER,
+  FOUNDER_BIO,
+  FOUNDER_EMAIL,
+  FOUNDER_NAME,
+  FOUNDER_TITLE,
+} from "@/lib/brand";
 import { SectionHeading } from "./section-heading";
 
 export function Team() {
@@ -11,6 +18,24 @@ export function Team() {
           title="Meet the people behind Krakenix"
           description="Real engineers. Use the contact form — no ticket queues."
         />
+
+        <div className="glass-card-gold card-compact mb-4 md:mb-6 text-center ring-1 ring-gold/30">
+          <p className="text-xs uppercase tracking-[0.2em] text-gold font-semibold mb-2">
+            {FOUNDER_BANNER}
+          </p>
+          <h3 className="text-lg sm:text-xl font-bold text-foreground mb-1">
+            {FOUNDER_NAME} — {FOUNDER_TITLE}, KrakenIX AI
+          </h3>
+          <p className="text-sm sm:text-base text-muted-light leading-relaxed max-w-3xl mx-auto">
+            {FOUNDER_BIO}
+          </p>
+          <a
+            href={`mailto:${FOUNDER_EMAIL}`}
+            className="inline-block mt-3 text-sm font-medium text-cyan-bright hover:text-cyan transition-colors"
+          >
+            {FOUNDER_EMAIL}
+          </a>
+        </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-3 md:gap-3">
           {TEAM.map((member) => (

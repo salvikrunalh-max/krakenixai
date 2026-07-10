@@ -8,8 +8,11 @@ export const BRAND_LOGO_SRC = "/krakenix-ai-logo.png";
 export const OPEN_CHAT_EVENT = "krakenix:open-chat";
 /** Primary contact email — shown publicly for founder & sales lead */
 export const FOUNDER_EMAIL = "architect@krakenixai.com";
-export const FOUNDER_NAME = "Krunal H Salvi";
+export const FOUNDER_NAME = "Krunal H. Salvi";
 export const FOUNDER_TITLE = "Founder & Lead Architect";
+export const FOUNDER_BIO =
+  "12+ years running daily operations for high-volume local service businesses. Led 160+ person teams to 25% higher customer satisfaction and 35% revenue growth via process automation, data analysis, and execution discipline. Excelled in live chat/social support (Salesforce/Avergent, 95% satisfaction) and supply chain streamlining (15% error reduction). Mechanical Engineering background. Built KrakenIX to give operators what I lived: autonomous systems that respond and close in <15 seconds — so you focus on service, not lost leads.";
+export const FOUNDER_BANNER = "Built by operators, for operators.";
 export const FOUNDER_PHONE = "9188403501";
 export const FOUNDER_PHONE_DISPLAY = "918-840-3501";
 export const FOUNDER_SMS_HREF = "sms:9188403501";

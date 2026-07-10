@@ -1,4 +1,4 @@
-import { FOUNDER_EMAIL } from "@/lib/brand";
+import { FOUNDER_EMAIL, FOUNDER_NAME } from "@/lib/brand";
 
 export type ContactTargetId =
   | "founder"
@@ -18,7 +18,7 @@ export type ContactTarget = {
 
 export const FOUNDER_TARGET: ContactTarget = {
   id: "founder",
-  label: "Krunal H Salvi",
+  label: FOUNDER_NAME,
   role: "Founder & Lead Architect",
   email: FOUNDER_EMAIL,
   phone: "9188403501",
@@ -56,7 +56,7 @@ export const SPECIALIST_TARGETS: ContactTarget[] = [
   },
   {
     id: "founder",
-    label: "Krunal H Salvi",
+    label: FOUNDER_NAME,
     role: "Founder & Lead Architect",
     email: FOUNDER_EMAIL,
     phone: "9188403501",

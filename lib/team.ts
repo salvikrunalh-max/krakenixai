@@ -3,8 +3,8 @@ import { FOUNDER_EMAIL } from "@/lib/brand";
 export const TEAM = [
   {
     id: "founder",
-    displayName: "Krunal H Salvi",
-    name: "Krunal H Salvi",
+    displayName: "Krunal H. Salvi",
+    name: "Krunal H. Salvi",
     role: "Founder & Lead Architect",
     email: FOUNDER_EMAIL,
     phone: "918-840-3501",
