@@ -14,8 +14,22 @@ export const FOUNDER_PHONE = "9188403501";
 export const FOUNDER_PHONE_DISPLAY = "918-840-3501";
 export const FOUNDER_SMS_HREF = "sms:9188403501";
 export const FOUNDER_TEL_HREF = "tel:9188403501";
-/** Strategy-call target — inline slot picker; set NEXT_PUBLIC_CALENDLY_URL for live Calendly */
-export const BOOKING_HREF = process.env.NEXT_PUBLIC_CALENDLY_URL ?? "#booking";
+
+/** In-page booking section id (slot picker / Calendly placeholder). */
+export const BOOKING_SECTION_ID = "booking";
+
+/**
+ * Strategy-call destination.
+ * - Set NEXT_PUBLIC_CALENDLY_URL to a full https://calendly.com/... link for live booking.
+ * - Otherwise scrolls to the on-page #booking placeholder (never loops back from contact).
+ */
+const calendlyUrl = process.env.NEXT_PUBLIC_CALENDLY_URL?.trim() ?? "";
+export const BOOKING_HREF =
+  calendlyUrl.startsWith("http://") || calendlyUrl.startsWith("https://")
+    ? calendlyUrl
+    : `#${BOOKING_SECTION_ID}`;
+
+export const IS_EXTERNAL_BOOKING = BOOKING_HREF.startsWith("http");
 
 export const DEMO_SMS_BODY =
   "Krakenix AI Demo • Lead captured. Reply 'YES' to book your free strategy call or get a custom estimate.";

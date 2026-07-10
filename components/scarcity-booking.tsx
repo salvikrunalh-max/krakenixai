@@ -24,7 +24,7 @@ export function ScarcityBooking() {
   const pct = (claimed / TOTAL_SLOTS) * 100;
 
   return (
-    <section id="scarcity" className="section-compact relative overflow-hidden">
+    <section id="booking" className="section-compact relative overflow-hidden">
       <div className="section-glow section-glow-gold" />
       <div className="glow-orb bottom-0 left-1/4 h-64 w-96 bg-gold/10" />
 

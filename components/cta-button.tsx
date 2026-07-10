@@ -28,11 +28,14 @@ export function CtaButton({
     outline: "btn-outline rounded-full",
   };
 
+  const external = href.startsWith("http://") || href.startsWith("https://");
+
   return (
     <a
       href={href}
       onClick={onClick}
       className={`inline-flex items-center justify-center gap-2 font-semibold ${sizes[size]} ${variants[variant]} ${className}`}
+      {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
     >
       {children}
     </a>

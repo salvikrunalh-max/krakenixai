@@ -2,11 +2,11 @@
 
 import { useState, type FormEvent } from "react";
 import { normalizePhoneInput } from "@/lib/automation-test-schema";
-import { BRAND_RELAY, DEMO_SMS_BODY, BOOKING_HREF } from "@/lib/brand";
+import { BRAND_RELAY, DEMO_SMS_BODY } from "@/lib/brand";
 import { CHAT_BOT_OFFER } from "@/lib/lost-leads-calculator";
 import { SectionHeading } from "./section-heading";
 import { OpenChatCta } from "./open-chat-cta";
-import { CtaButton } from "./cta-button";
+import { BookCallLink } from "./book-call-link";
 
 type Status = "idle" | "loading" | "success" | "error";
 
@@ -177,9 +177,9 @@ export function LiveTestWidget() {
         </form>
 
         <div className="mt-4 text-center">
-          <CtaButton href={BOOKING_HREF} variant="outline" size="sm">
+          <BookCallLink variant="outline" size="sm">
             Book a strategy call
-          </CtaButton>
+          </BookCallLink>
         </div>
 
         <div className="glass-card-emerald card-compact mt-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">

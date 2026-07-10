@@ -4,7 +4,8 @@ import { OpenChatCta } from "./open-chat-cta";
 import { LiveMetrics } from "./live-metrics";
 import { HeroIntelPanel } from "./hero-intel-panel";
 import { IndustryTicker } from "./industry-ticker";
-import { BOOKING_HREF, FOUNDER_SMS_HREF } from "@/lib/brand";
+import { BookCallLink } from "./book-call-link";
+import { FOUNDER_SMS_HREF } from "@/lib/brand";
 
 export function Hero() {
   return (
@@ -46,9 +47,9 @@ export function Hero() {
               >
                 Text
               </a>
-              <CtaButton href={BOOKING_HREF} size="lg" className="w-full md:w-auto text-sm md:text-base">
+              <BookCallLink variant="gold" size="lg" className="w-full md:w-auto text-sm md:text-base">
                 Book Call
-              </CtaButton>
+              </BookCallLink>
               <TestItLiveButton size="lg" className="w-full md:w-auto text-sm md:text-base" />
               <CtaButton href="#calculator" variant="outline" size="lg" className="w-full md:w-auto text-sm md:text-base">
                 Build Your Estimate

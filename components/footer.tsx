@@ -1,10 +1,9 @@
 import Link from "next/link";
-import { CtaButton } from "./cta-button";
 import { BrandMark, BrandName } from "./brand-logo";
+import { BookCallLink } from "./book-call-link";
 import {
   BRAND_NAME,
   BRAND_RELAY,
-  BOOKING_HREF,
   FOUNDER_NAME,
   FOUNDER_TITLE,
   FOUNDER_SMS_HREF,
@@ -43,9 +42,9 @@ export function Footer() {
             <a href={FOUNDER_SMS_HREF} className="btn-outline rounded-full px-6 py-3 text-sm font-semibold">
               Text
             </a>
-            <CtaButton href={BOOKING_HREF} size="md">
+            <BookCallLink variant="gold" size="md">
               Book Call
-            </CtaButton>
+            </BookCallLink>
           </div>
         </div>
 

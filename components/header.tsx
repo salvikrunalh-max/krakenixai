@@ -3,7 +3,7 @@ import { MobileNav } from "./mobile-nav";
 import { NavLinks } from "./nav-dropdown";
 import { TestItLiveButton } from "./test-it-live-button";
 import { BrandMark, BrandName } from "./brand-logo";
-import { BOOKING_HREF } from "@/lib/brand";
+import { BookCallLink } from "./book-call-link";
 
 export function Header() {
   return (
@@ -22,18 +22,12 @@ export function Header() {
 
         <div className="flex shrink-0 items-center gap-2">
           <TestItLiveButton size="sm" className="hidden sm:inline-flex" />
-          <a
-            href={BOOKING_HREF}
-            className="md:hidden inline-flex btn-gold rounded-full px-3 py-2 text-xs font-semibold shrink-0"
-          >
+          <BookCallLink className="md:hidden inline-flex btn-gold rounded-full px-3 py-2 text-xs font-semibold shrink-0">
             Book Call
-          </a>
-          <a
-            href={BOOKING_HREF}
-            className="hidden md:inline-flex btn-gold rounded-full px-4 py-2 text-sm"
-          >
+          </BookCallLink>
+          <BookCallLink className="hidden md:inline-flex btn-gold rounded-full px-4 py-2 text-sm">
             Book Call
-          </a>
+          </BookCallLink>
           <MobileNav />
         </div>
       </div>

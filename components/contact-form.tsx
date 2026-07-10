@@ -9,7 +9,7 @@ import {
   getContactTarget,
   type ContactTarget,
 } from "@/lib/contact-targets";
-import { FOUNDER_SMS_HREF } from "@/lib/brand";
+import { FOUNDER_EMAIL, FOUNDER_SMS_HREF } from "@/lib/brand";
 import { parseClientUrlParams } from "@/lib/url-params";
 import { SectionHeading } from "./section-heading";
 import { ContactRouter } from "./contact-router";
@@ -145,7 +145,7 @@ export function ContactForm() {
       setResponseMeta({
         simulated: data.simulated,
         elapsedMs: data.elapsedMs,
-        routedTo: data.routedTo ?? contactTarget.label,
+        routedTo: data.routedTo ?? FOUNDER_EMAIL,
       });
       setState("success");
       form.reset();
@@ -164,7 +164,7 @@ export function ContactForm() {
           ? "Foundational slot requested"
           : intent === "booking"
             ? "Call request received"
-            : "Message sent";
+            : "Message sent successfully";
 
     return (
       <section id="contact" className="section-compact relative">
@@ -175,18 +175,24 @@ export function ContactForm() {
             </div>
             <h2 className="text-2xl font-bold mb-2">{headline}</h2>
             <p className="text-muted-light mb-2">
-              Routed to{" "}
-              <span className="text-foreground font-medium">{responseMeta.routedTo}</span>{" "}
+              Thanks — we received your message and will follow up shortly.
+            </p>
+            <p className="text-sm text-foreground mb-2">
+              Sent to{" "}
+              <a
+                href={`mailto:${FOUNDER_EMAIL}`}
+                className="text-cyan-bright font-medium hover:text-cyan transition-colors"
+              >
+                {responseMeta.routedTo || FOUNDER_EMAIL}
+              </a>{" "}
               in under {seconds} second{seconds === 1 ? "" : "s"}.
             </p>
             {packageNote && (
               <p className="text-sm text-cyan-bright mb-4">{packageNote}</p>
             )}
-            {responseMeta.simulated && (
-              <p className="text-xs text-muted mb-4">
-                Demo relay active — configure Resend env vars for live email delivery.
-              </p>
-            )}
+            <p className="text-xs text-muted mb-4">
+              Live emails coming soon (Resend setup).
+            </p>
             <div className="flex flex-col sm:flex-row gap-2.5 justify-center mb-4">
               {intent !== "booking" && (
                 <a

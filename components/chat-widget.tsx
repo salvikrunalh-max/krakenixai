@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { BRAND_LOGO_MARK, BRAND_NAME, BRAND_RELAY, BOOKING_HREF, OPEN_CHAT_EVENT } from "@/lib/brand";
+import { BRAND_LOGO_MARK, BRAND_NAME, BRAND_RELAY, BOOKING_HREF, BOOKING_SECTION_ID, IS_EXTERNAL_BOOKING, OPEN_CHAT_EVENT } from "@/lib/brand";
 import { CHAT_BOT_OFFER } from "@/lib/lost-leads-calculator";
 
 type Message = {
@@ -97,10 +97,16 @@ export function ChatWidget() {
     if (!action) return;
     if (key === "book") {
       setOpen(false);
-      if (BOOKING_HREF.startsWith("#")) {
-        window.location.hash = BOOKING_HREF.slice(1);
-      } else {
-        window.location.href = BOOKING_HREF;
+      if (IS_EXTERNAL_BOOKING) {
+        window.open(BOOKING_HREF, "_blank", "noopener,noreferrer");
+        return;
+      }
+      const el = document.getElementById(BOOKING_SECTION_ID);
+      if (el) {
+        if (window.location.hash !== `#${BOOKING_SECTION_ID}`) {
+          window.history.pushState(null, "", `#${BOOKING_SECTION_ID}`);
+        }
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
       }
       return;
     }

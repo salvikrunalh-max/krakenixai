@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { contactSchema } from "@/lib/contact-schema";
+import { FOUNDER_EMAIL } from "@/lib/brand";
 
 const rateLimit = new Map<string, { count: number; reset: number }>();
 const RATE_LIMIT = 5;
@@ -21,6 +22,8 @@ function checkRateLimit(ip: string): boolean {
 }
 
 export async function POST(request: Request) {
+  const start = Date.now();
+
   try {
     const ip =
       request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ??
@@ -46,12 +49,11 @@ export async function POST(request: Request) {
 
     const data = parsed.data;
     const apiKey = process.env.RESEND_API_KEY;
-    const toEmail = process.env.CONTACT_TO_EMAIL;
+    const toEmail = process.env.CONTACT_TO_EMAIL ?? FOUNDER_EMAIL;
     const fromEmail = process.env.RESEND_FROM_EMAIL ?? "onboarding@resend.dev";
-    const demoMode = !apiKey || !toEmail;
+    const routedTo = FOUNDER_EMAIL;
 
-    if (demoMode) {
-      const start = Date.now();
+    if (!apiKey) {
       await new Promise((resolve) => setTimeout(resolve, 700 + Math.random() * 500));
       const elapsedMs = Date.now() - start;
 
@@ -61,7 +63,8 @@ export async function POST(request: Request) {
         industry: data.industry,
         intent: data.intent,
         package: data.package,
-        routedTo: data.contactTargetLabel ?? data.contactTarget,
+        to: toEmail,
+        routedTo,
         ip,
       });
 
@@ -69,7 +72,7 @@ export async function POST(request: Request) {
         success: true,
         simulated: true,
         elapsedMs,
-        routedTo: data.contactTargetLabel ?? "Krakenix team",
+        routedTo,
       });
     }
 
@@ -85,7 +88,7 @@ export async function POST(request: Request) {
       data.intent ? `Intent: ${data.intent}` : null,
       data.slot ? `Preferred slot: ${data.slot}` : null,
       data.contactTargetLabel
-        ? `Routed to: ${data.contactTargetLabel} (${data.contactTargetEmail ?? data.contactTarget})`
+        ? `Requested specialist: ${data.contactTargetLabel} (${data.contactTargetEmail ?? data.contactTarget})`
         : null,
       "",
       data.message,
@@ -93,21 +96,30 @@ export async function POST(request: Request) {
       .filter(Boolean)
       .join("\n");
 
-    const routeTo = data.contactTargetEmail ?? toEmail;
-    const ccFounder =
-      data.contactTargetEmail && data.contactTargetEmail !== toEmail ? toEmail : undefined;
-
-    await resend.emails.send({
+    const { error } = await resend.emails.send({
       from: fromEmail,
-      to: routeTo,
-      cc: ccFounder,
+      to: toEmail,
       replyTo: data.email,
       subject: `Krakenix Lead: ${data.businessName} (${data.industry})`,
       text: lines,
     });
 
-    return NextResponse.json({ success: true });
-  } catch {
+    if (error) {
+      console.error("[contact/resend]", error);
+      return NextResponse.json(
+        { error: "Failed to send message. Please try again." },
+        { status: 500 }
+      );
+    }
+
+    return NextResponse.json({
+      success: true,
+      simulated: false,
+      elapsedMs: Date.now() - start,
+      routedTo,
+    });
+  } catch (err) {
+    console.error("[contact]", err);
     return NextResponse.json(
       { error: "Failed to send message. Please try again." },
       { status: 500 }
