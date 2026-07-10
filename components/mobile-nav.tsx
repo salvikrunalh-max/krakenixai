@@ -49,13 +49,6 @@ export function MobileNav() {
               Enterprise
             </Link>
             <TestItLiveButton size="sm" className="w-full justify-center mt-2" />
-            <Link
-              href="#booking"
-              onClick={() => setOpen(false)}
-              className="btn-gold rounded-full px-4 py-3 min-h-[44px] text-sm text-center mt-2"
-            >
-              Book Call
-            </Link>
           </nav>
         </div>
       )}

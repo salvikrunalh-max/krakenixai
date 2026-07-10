@@ -14,6 +14,8 @@ export const FOUNDER_PHONE = "9188403501";
 export const FOUNDER_PHONE_DISPLAY = "918-840-3501";
 export const FOUNDER_SMS_HREF = "sms:9188403501";
 export const FOUNDER_TEL_HREF = "tel:9188403501";
+/** Strategy-call target — inline slot picker; set NEXT_PUBLIC_CALENDLY_URL for live Calendly */
+export const BOOKING_HREF = process.env.NEXT_PUBLIC_CALENDLY_URL ?? "#booking";
 
 export const DEMO_SMS_BODY =
   "Krakenix AI Demo • Lead captured. Reply 'YES' to book your free strategy call or get a custom estimate.";

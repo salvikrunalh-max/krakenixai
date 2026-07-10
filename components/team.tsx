@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { TEAM } from "@/lib/team";
 import { SectionHeading } from "./section-heading";
-import { FOUNDER_SMS_HREF } from "@/lib/brand";
 
 export function Team() {
   return (
@@ -10,7 +9,7 @@ export function Team() {
         <SectionHeading
           eyebrow="Your team"
           title="Meet the people behind Krakenix"
-          description="Real engineers. Text, book a call, or use the contact form — no ticket queues."
+          description="Real engineers. Use the contact form — no ticket queues."
         />
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-3 md:gap-3">
@@ -58,30 +57,12 @@ export function Team() {
                     {member.email}
                   </a>
                 ) : null}
-                {member.featured ? (
-                  <div className="flex flex-wrap gap-2 mt-2">
-                    <a
-                      href={FOUNDER_SMS_HREF}
-                      className="text-sm font-medium text-cyan-bright hover:text-cyan transition-colors"
-                    >
-                      Text
-                    </a>
-                    <span className="text-muted">·</span>
-                    <Link
-                      href="#booking"
-                      className="text-sm font-medium text-gold hover:text-gold-hover transition-colors"
-                    >
-                      Book Call
-                    </Link>
-                  </div>
-                ) : (
-                  <Link
-                    href="#contact"
-                    className="inline-block mt-2 text-sm font-medium text-gold hover:text-gold-hover transition-colors"
-                  >
-                    Contact form →
-                  </Link>
-                )}
+                <Link
+                  href="#contact"
+                  className="inline-block mt-2 text-sm font-medium text-gold hover:text-gold-hover transition-colors"
+                >
+                  Contact form →
+                </Link>
               </div>
             </div>
           ))}

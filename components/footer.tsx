@@ -4,6 +4,7 @@ import { BrandMark, BrandName } from "./brand-logo";
 import {
   BRAND_NAME,
   BRAND_RELAY,
+  BOOKING_HREF,
   FOUNDER_NAME,
   FOUNDER_TITLE,
   FOUNDER_SMS_HREF,
@@ -42,11 +43,8 @@ export function Footer() {
             <a href={FOUNDER_SMS_HREF} className="btn-outline rounded-full px-6 py-3 text-sm font-semibold">
               Text
             </a>
-            <CtaButton href="#booking" size="md">
+            <CtaButton href={BOOKING_HREF} size="md">
               Book Call
-            </CtaButton>
-            <CtaButton href="#contact" variant="outline" size="md">
-              Contact Form
             </CtaButton>
           </div>
         </div>
@@ -102,16 +100,6 @@ export function Footer() {
               Get in touch
             </h3>
             <ul className="space-y-2 text-sm">
-              <li>
-                <a href={FOUNDER_SMS_HREF} className="text-muted-light hover:text-cyan-bright transition-colors">
-                  Text
-                </a>
-              </li>
-              <li>
-                <Link href="#booking" className="text-muted-light hover:text-cyan-bright transition-colors">
-                  Book Call
-                </Link>
-              </li>
               <li>
                 <Link href="#contact" className="text-muted-light hover:text-cyan-bright transition-colors">
                   Contact Form

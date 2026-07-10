@@ -1,7 +1,6 @@
 import { SectionHeading } from "./section-heading";
 import { CtaButton } from "./cta-button";
 import { FadeIn } from "./fade-in";
-import { FOUNDER_SMS_HREF } from "@/lib/brand";
 
 const BULLETS = [
   "Custom AI agent orchestration",
@@ -52,12 +51,6 @@ export function EnterpriseCta() {
             <div className="flex flex-col sm:flex-row gap-2.5">
               <CtaButton href="#contact?intent=enterprise" size="md">
                 Contact for Enterprise
-              </CtaButton>
-              <a href={FOUNDER_SMS_HREF} className="btn-outline rounded-full px-6 py-3 text-sm font-semibold text-center">
-                Text
-              </a>
-              <CtaButton href="#booking" variant="outline" size="md">
-                Book Call
               </CtaButton>
             </div>
 

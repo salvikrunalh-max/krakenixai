@@ -1,13 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import {
   FOUNDER_TARGET,
   SPECIALIST_TARGETS,
   type ContactTarget,
 } from "@/lib/contact-targets";
-import { FOUNDER_SMS_HREF } from "@/lib/brand";
 
 type ContactRouterProps = {
   selected: ContactTarget;
@@ -19,29 +17,6 @@ export function ContactRouter({ selected, onSelect }: ContactRouterProps) {
 
   return (
     <div className="space-y-4 mb-6">
-      <div className="glass-card-gold card-compact">
-        <p className="text-xs uppercase tracking-widest text-gold font-semibold mb-2">
-          Step 1 · Reach the founder
-        </p>
-        <p className="text-sm text-muted-light mb-4">
-          Fastest path: text or book a call. Or use the secure form below.
-        </p>
-        <div className="grid sm:grid-cols-2 gap-2.5">
-          <a
-            href={FOUNDER_SMS_HREF}
-            className="btn-outline rounded-full px-4 py-3 text-sm font-semibold text-center"
-          >
-            Text
-          </a>
-          <Link
-            href="#booking"
-            className="btn-gold rounded-full px-4 py-3 text-sm font-semibold text-center"
-          >
-            Book Call
-          </Link>
-        </div>
-      </div>
-
       <div className="glass-card-purple card-compact">
         <button
           type="button"
@@ -51,10 +26,10 @@ export function ContactRouter({ selected, onSelect }: ContactRouterProps) {
         >
           <div>
             <p className="text-xs uppercase tracking-widest text-purple-300 font-semibold mb-1">
-              Step 2 · Or route to a specialist
+              Route to a specialist
             </p>
             <p className="text-sm text-muted-light">
-              Pick a team member — your form submission routes through {FOUNDER_TARGET.label}&apos;s relay.
+              Optional — pick a team member. Submissions route through {FOUNDER_TARGET.label}&apos;s relay.
             </p>
           </div>
           <svg

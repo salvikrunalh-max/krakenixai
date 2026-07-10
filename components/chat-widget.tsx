@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { BRAND_LOGO_MARK, BRAND_NAME, BRAND_RELAY, OPEN_CHAT_EVENT } from "@/lib/brand";
+import { BRAND_LOGO_MARK, BRAND_NAME, BRAND_RELAY, BOOKING_HREF, OPEN_CHAT_EVENT } from "@/lib/brand";
 import { CHAT_BOT_OFFER } from "@/lib/lost-leads-calculator";
 
 type Message = {
@@ -36,7 +36,7 @@ function botReply(key: string): string {
     case "chatbot":
       return `Website Chat Bot: ${CHAT_BOT_OFFER.description} Setup from $${CHAT_BOT_OFFER.setupFrom}, optional $${CHAT_BOT_OFFER.monthlyFrom}/mo hosting. Bundles with SMS engine.`;
     case "book":
-      return "Book a free strategy call — we'll map your lead flow and show exactly what Krakenix would automate. Use Text or Book Call below.";
+      return `Book a free strategy call — we'll map your lead flow and show exactly what Krakenix would automate. Scroll to the booking section or use Book Call in the hero.`;
     default:
       return "I can explain our 15-sec engine, chat bots, pricing, or connect you to the live demo. Try a quick button above!";
   }
@@ -95,6 +95,15 @@ export function ChatWidget() {
   function handleQuick(key: string) {
     const action = QUICK_ACTIONS.find((a) => a.key === key);
     if (!action) return;
+    if (key === "book") {
+      setOpen(false);
+      if (BOOKING_HREF.startsWith("#")) {
+        window.location.hash = BOOKING_HREF.slice(1);
+      } else {
+        window.location.href = BOOKING_HREF;
+      }
+      return;
+    }
     sendUser(action.label);
     if (key === "demo") setTimeout(() => setOpen(false), 800);
   }

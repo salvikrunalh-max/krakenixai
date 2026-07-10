@@ -188,15 +188,14 @@ export function ContactForm() {
               </p>
             )}
             <div className="flex flex-col sm:flex-row gap-2.5 justify-center mb-4">
-              <a
-                href={FOUNDER_SMS_HREF}
-                className="btn-outline rounded-full px-5 py-2.5 text-sm font-semibold"
-              >
-                Text us now
-              </a>
-              <CtaButton href="#booking" variant="gold" size="sm">
-                Book a call
-              </CtaButton>
+              {intent !== "booking" && (
+                <a
+                  href={FOUNDER_SMS_HREF}
+                  className="btn-outline rounded-full px-5 py-2.5 text-sm font-semibold"
+                >
+                  Text us now
+                </a>
+              )}
             </div>
             <CtaButton href="#calculator" variant="outline" size="sm">
               Back to calculator

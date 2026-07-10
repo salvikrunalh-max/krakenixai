@@ -4,6 +4,7 @@ import { OpenChatCta } from "./open-chat-cta";
 import { LiveMetrics } from "./live-metrics";
 import { HeroIntelPanel } from "./hero-intel-panel";
 import { IndustryTicker } from "./industry-ticker";
+import { BOOKING_HREF, FOUNDER_SMS_HREF } from "@/lib/brand";
 
 export function Hero() {
   return (
@@ -39,8 +40,17 @@ export function Hero() {
             </p>
 
             <div className="flex flex-col gap-2 md:flex-row md:flex-wrap">
+              <a
+                href={FOUNDER_SMS_HREF}
+                className="btn-outline rounded-full px-6 py-3 text-sm md:text-base font-semibold text-center w-full md:w-auto"
+              >
+                Text
+              </a>
+              <CtaButton href={BOOKING_HREF} size="lg" className="w-full md:w-auto text-sm md:text-base">
+                Book Call
+              </CtaButton>
               <TestItLiveButton size="lg" className="w-full md:w-auto text-sm md:text-base" />
-              <CtaButton href="#calculator" size="lg" className="w-full md:w-auto text-sm md:text-base">
+              <CtaButton href="#calculator" variant="outline" size="lg" className="w-full md:w-auto text-sm md:text-base">
                 Build Your Estimate
               </CtaButton>
               <OpenChatCta size="lg" className="w-full md:w-auto hidden md:inline-flex" />

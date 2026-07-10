@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { INDUSTRY_OPTIONS } from "@/lib/industries";
+import { buildHashHref } from "@/lib/url-params";
 import { CtaButton } from "./cta-button";
 
 const SLOTS = [
@@ -14,9 +15,11 @@ export function BookingWidget() {
   const [industry, setIndustry] = useState<string>(INDUSTRY_OPTIONS[0]?.value ?? "");
   const [selectedSlot, setSelectedSlot] = useState<string | null>(null);
 
-  const contactHref = selectedSlot
-    ? `#contact?intent=booking&slot=${encodeURIComponent(selectedSlot)}&industry=${industry}`
-    : `#contact?intent=booking&industry=${industry}`;
+  const contactHref = buildHashHref("contact", {
+    intent: "booking",
+    industry,
+    slot: selectedSlot ?? undefined,
+  });
 
   return (
     <div id="booking" className="glass-card card-compact h-full">
