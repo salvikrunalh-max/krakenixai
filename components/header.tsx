@@ -24,6 +24,12 @@ export function Header() {
           <TestItLiveButton size="sm" className="hidden sm:inline-flex" />
           <a
             href={BOOKING_HREF}
+            className="md:hidden inline-flex btn-gold rounded-full px-3 py-2 text-xs font-semibold shrink-0"
+          >
+            Book Call
+          </a>
+          <a
+            href={BOOKING_HREF}
             className="hidden md:inline-flex btn-gold rounded-full px-4 py-2 text-sm"
           >
             Book Call
