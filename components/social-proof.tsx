@@ -38,34 +38,57 @@ const TESTIMONIALS = [
     location: "Ohio",
     tag: "Automotive",
   },
-];
+] as const;
+
+type Testimonial = (typeof TESTIMONIALS)[number];
+
+function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
+  return (
+    <div className="testimonial-card glass-card-emerald card-compact h-full">
+      <span className="text-xs uppercase tracking-wider text-cyan/80 font-medium">{testimonial.tag}</span>
+      <div className="flex gap-0.5 my-2">
+        {Array.from({ length: 5 }).map((_, j) => (
+          <svg key={j} className="w-3.5 h-3.5 text-gold" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+          </svg>
+        ))}
+      </div>
+      <p className="text-xs text-muted-light leading-relaxed mb-2 line-clamp-3 sm:line-clamp-2">
+        &ldquo;{testimonial.quote}&rdquo;
+      </p>
+      <p className="text-xs font-semibold text-foreground">{testimonial.role}</p>
+      <p className="text-xs text-muted-light">{testimonial.location}</p>
+    </div>
+  );
+}
 
 export function SocialProof() {
   return (
-    <section className="section-compact relative border-y border-cyan/8">
+    <section id="reviews" className="section-compact relative border-y border-cyan/8">
       <div className="section-glow section-glow-cyan" />
-      <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
+      <div className="relative mx-auto max-w-6xl px-4 sm:px-6 min-w-0">
         <SectionHeading
           eyebrow="Trusted by operators"
           title="Results that speak for themselves"
         />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-3 mb-4 md:mb-8">
-          {TESTIMONIALS.map((t, i) => (
-            <FadeIn key={t.role} delay={i * 40}>
-              <div className="glass-card-emerald card-compact h-full transition-colors">
-                <span className="text-xs uppercase tracking-wider text-cyan/80 font-medium">{t.tag}</span>
-                <div className="flex gap-0.5 my-2">
-                  {Array.from({ length: 5 }).map((_, j) => (
-                    <svg key={j} className="w-3.5 h-3.5 text-gold" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  ))}
-                </div>
-                <p className="text-xs text-muted-light leading-relaxed mb-2 line-clamp-2">&ldquo;{t.quote}&rdquo;</p>
-                <p className="text-xs font-semibold text-foreground">{t.role}</p>
-                <p className="text-xs text-muted-light">{t.location}</p>
+        <div className="testimonial-carousel sm:hidden -mx-4 mb-4">
+          <div className="testimonial-carousel-track px-4 pb-1">
+            {TESTIMONIALS.map((testimonial) => (
+              <div
+                key={`${testimonial.role}-${testimonial.location}`}
+                className="testimonial-carousel-slide shrink-0 w-[82vw] max-w-[18.5rem] snap-start"
+              >
+                <TestimonialCard testimonial={testimonial} />
               </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-3 mb-4 md:mb-8">
+          {TESTIMONIALS.map((testimonial, i) => (
+            <FadeIn key={`${testimonial.role}-${testimonial.location}`} delay={i * 40}>
+              <TestimonialCard testimonial={testimonial} />
             </FadeIn>
           ))}
         </div>

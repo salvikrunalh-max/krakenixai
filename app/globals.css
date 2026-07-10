@@ -809,6 +809,52 @@
   to { transform: translateX(-50%); }
 }
 
+/* ── Testimonials carousel (mobile) ── */
+.testimonial-card {
+  background: rgba(6, 20, 32, 0.72);
+  transition: none;
+}
+
+.testimonial-card:hover {
+  transform: none;
+}
+
+.testimonial-carousel {
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+  touch-action: pan-x;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  mask-image: linear-gradient(90deg, transparent, black 4%, black 96%, transparent);
+}
+
+.testimonial-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.testimonial-carousel-track {
+  display: flex;
+  width: max-content;
+  gap: 0.75rem;
+}
+
+.testimonial-carousel-slide {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+@media (max-width: 767px) {
+  .testimonial-card {
+    background: rgba(6, 20, 32, 0.58);
+    box-shadow:
+      0 0 0 1px rgba(74, 222, 128, 0.22) inset,
+      0 6px 18px rgba(0, 0, 0, 0.28);
+  }
+}
+
 /* ── Fade in ── */
 .fade-in {
   opacity: 0;
