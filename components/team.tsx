@@ -20,7 +20,7 @@ export function Team() {
               className={`card-compact flex gap-3 items-start ${
                 member.featured
                   ? "glass-card-gold ring-1 ring-gold/35"
-                  : member.name === "Natasha"
+                  : member.id === "natasha"
                     ? "glass-card-purple"
                     : member.name === "Alex Rivera"
                       ? "glass-card-cyan"
@@ -50,6 +50,14 @@ export function Team() {
                 <p className="text-sm text-cyan-bright/90 font-medium mt-0.5">{member.role}</p>
                 <p className="text-sm text-muted-light mt-1 leading-snug">{member.specialty}</p>
                 <p className="text-xs text-muted-light mt-1">{member.stat}</p>
+                {"showEmail" in member && member.showEmail ? (
+                  <a
+                    href={`mailto:${member.email}`}
+                    className="inline-block mt-2 text-sm font-medium text-cyan-bright hover:text-cyan transition-colors break-all"
+                  >
+                    {member.email}
+                  </a>
+                ) : null}
                 {member.featured ? (
                   <div className="flex flex-wrap gap-2 mt-2">
                     <a

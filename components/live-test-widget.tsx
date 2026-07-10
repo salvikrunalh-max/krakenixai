@@ -2,6 +2,7 @@
 
 import { useState, type FormEvent } from "react";
 import { normalizePhoneInput } from "@/lib/automation-test-schema";
+import { BRAND_RELAY, DEMO_SMS_BODY } from "@/lib/brand";
 import { CHAT_BOT_OFFER } from "@/lib/lost-leads-calculator";
 import { SectionHeading } from "./section-heading";
 import { OpenChatCta } from "./open-chat-cta";
@@ -15,12 +16,32 @@ export function LiveTestWidget() {
   const [status, setStatus] = useState<Status>("idle");
   const [message, setMessage] = useState("");
   const [elapsed, setElapsed] = useState<number | null>(null);
+  const [simulated, setSimulated] = useState(false);
+
+  function successMessage(mode: "call" | "sms", isSimulated: boolean, elapsedMs: number | null) {
+    const seconds =
+      elapsedMs !== null ? `${(elapsedMs / 1000).toFixed(1)}s` : "under 1s";
+
+    if (mode === "call") {
+      return isSimulated
+        ? `Demo call simulated in ${seconds}! Configure n8n webhook for live dispatch.`
+        : `✅ ${BRAND_RELAY} Live: Test call dispatched in ${seconds}! Check your phone now.`;
+    }
+
+    const preview = `"${DEMO_SMS_BODY}"`;
+    if (isSimulated) {
+      return `✅ ${BRAND_RELAY} Live: Test SMS simulated in ${seconds}!\n\nIn production you would receive instantly: ${preview}`;
+    }
+
+    return `✅ ${BRAND_RELAY} Live: Test SMS dispatched in ${seconds}!\n\nYou should receive instantly: ${preview}`;
+  }
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setStatus("loading");
-    setMessage("Dispatching to Krakenix Relay…");
+    setMessage(`Dispatching to ${BRAND_RELAY}…`);
     setElapsed(null);
+    setSimulated(false);
 
     try {
       const res = await fetch("/api/automation-test", {
@@ -39,15 +60,8 @@ export function LiveTestWidget() {
 
       setStatus("success");
       setElapsed(data.elapsedMs ?? null);
-      setMessage(
-        data.simulated
-          ? mode === "call"
-            ? "Demo call simulated! Configure n8n webhook for live dispatch."
-            : "Demo text simulated! Configure n8n webhook for live dispatch."
-          : mode === "call"
-            ? "Call dispatched! Check your phone now."
-            : "Text dispatched! Check your messages now."
-      );
+      setSimulated(Boolean(data.simulated));
+      setMessage(successMessage(mode, Boolean(data.simulated), data.elapsedMs ?? null));
     } catch {
       setStatus("error");
       setMessage("Network error. Please try again.");
@@ -139,10 +153,10 @@ export function LiveTestWidget() {
                     : "bg-cyan/10 border border-cyan/20 text-cyan-bright"
               }`}
             >
-              {message}
-              {elapsed !== null && status === "success" && (
+              <span className="whitespace-pre-line">{message}</span>
+              {elapsed !== null && status === "success" && simulated && (
                 <span className="block text-xs mt-1 opacity-80">
-                  Dispatched in {(elapsed / 1000).toFixed(1)}s
+                  Configure N8N_AUTOMATION_TEST_WEBHOOK_URL for live dispatch.
                 </span>
               )}
             </div>

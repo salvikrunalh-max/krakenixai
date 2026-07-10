@@ -1,3 +1,5 @@
+import { FOUNDER_EMAIL } from "@/lib/brand";
+
 export type ContactTargetId =
   | "founder"
   | "natasha"
@@ -18,7 +20,7 @@ export const FOUNDER_TARGET: ContactTarget = {
   id: "founder",
   label: "Krunal H Salvi",
   role: "Founder & Lead Architect",
-  email: "krunal@krakenix.ai",
+  email: FOUNDER_EMAIL,
   phone: "9188403501",
   interest: "General / fastest response",
 };
@@ -26,37 +28,37 @@ export const FOUNDER_TARGET: ContactTarget = {
 export const SPECIALIST_TARGETS: ContactTarget[] = [
   {
     id: "natasha",
-    label: "Natasha",
+    label: "Natasha McGee",
     role: "Manager & Sales Lead",
-    email: "natasha@krakenix.ai",
+    email: FOUNDER_EMAIL,
     interest: "Sales & pricing",
   },
   {
     id: "alex",
     label: "Alex Rivera",
     role: "Systems Engineer",
-    email: "alex@krakenix.ai",
+    email: FOUNDER_EMAIL,
     interest: "Voice AI & infrastructure",
   },
   {
     id: "elena",
     label: "Elena Morales",
     role: "Client Success Lead",
-    email: "elena@krakenix.ai",
+    email: FOUNDER_EMAIL,
     interest: "Onboarding & CRM",
   },
   {
     id: "marcus",
     label: "Marcus Chen",
     role: "Automation Specialist",
-    email: "marcus@krakenix.ai",
+    email: FOUNDER_EMAIL,
     interest: "Automation & workflows",
   },
   {
     id: "founder",
     label: "Krunal H Salvi",
     role: "Founder & Lead Architect",
-    email: "krunal@krakenix.ai",
+    email: FOUNDER_EMAIL,
     phone: "9188403501",
     interest: "Enterprise / custom builds",
   },
