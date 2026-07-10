@@ -18,7 +18,10 @@ export function FadeIn({
     const el = ref.current;
     if (!el) return;
 
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    if (
+      window.matchMedia("(max-width: 767px)").matches ||
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ) {
       setVisible(true);
       return;
     }
